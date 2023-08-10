@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 17:00:40 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/06 16:56:21 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/08/10 20:28:33 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,42 +32,6 @@ void PhoneBook::add_contact(Contact contact)
 		contacts[7] = contact;
 	}
 }
-
-// void PhoneBook::search_contact()
-// {
-//     int index;
-//     std::string input;
-
-//     std::cout << std::setw(10) << "index" << "|";
-//     std::cout << std::setw(10) << "first name" << "|";
-//     std::cout << std::setw(10) << "last name" << "|";
-//     std::cout << std::setw(10) << "nickname" << std::endl;
-
-//     for (int i = 0; i < nb_of_contacts; i++)
-//     {
-//         std::cout << std::setw(10) << i << "|";
-//         std::cout << std::setw(15) << contacts[i].get_first_name() << "|";
-//         std::cout << std::setw(15) << contacts[i].get_last_name() << "|";
-//         std::cout << std::setw(15) << contacts[i].get_nickname() << std::endl;
-//     }
-
-//     std::cout << "Enter index of the contact you want to see : ";
-//     std::cin >> input;
-
-//     if (std::isdigit(input[0]))
-//     {
-//         index = std::atoi(input.c_str());
-//         if (index >= 0 && index < nb_of_contacts)
-//             print_contact(contacts[index]);
-//         else
-//             std::cout << "Invalid index" << std::endl;
-//     }
-//     else
-//     {
-//         std::cout << "Invalid input" << std::endl;
-//     }
-// }
-
 
 void PhoneBook::search_contact() {
     int index;
@@ -102,7 +66,7 @@ void PhoneBook::search_contact() {
     std::cout << "Enter index of the contact you want to see : ";
     std::cin >> input;
     if (std::isdigit(input[0])) {
-        index = std::atoi(input.c_str());
+        index = std::atoi(input.c_str()); // to_change
         if (index >= 0 && index < nb_of_contacts)
             print_contact(contacts[index]);
         else
