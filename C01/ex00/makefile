@@ -5,16 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/05 17:21:32 by htalhaou          #+#    #+#              #
-#    Updated: 2023/08/10 21:20:18 by htalhaou         ###   ########.fr        #
+#    Created: 2023/08/10 21:21:37 by htalhaou          #+#    #+#              #
+#    Updated: 2023/08/11 11:53:09 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = Contact.cpp \
-	  main.cpp \
-	  PhoneBook.cpp
+SRC = Zombie.cpp \
+	  main.cpp\
+	  newZombie.cpp\
+	  randomChump.cpp
 
-NAME = phonebook
+NAME = zombie
 
 OBJ = $(SRC:.cpp=.o)
 

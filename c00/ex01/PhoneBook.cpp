@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 17:00:40 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/10 20:28:33 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/08/11 11:06:42 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void PhoneBook::add_contact(Contact contact)
 	}
 	else
 	{
-		for (int i = 0; i < 7; i++)
+		for (int i = 7; i < 0; i--)
 			contacts[i] = contacts[i + 1];
 		contacts[7] = contact;
 	}
@@ -80,6 +80,7 @@ void PhoneBook::search_contact() {
 void PhoneBook::exit_prog()
 {
 	std::cout << "Exiting program..." << std::endl;
+	// exit (0);
 }
 
 void PhoneBook::print_contact(Contact contact)

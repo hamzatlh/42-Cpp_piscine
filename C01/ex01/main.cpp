@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 16:52:55 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/11 11:06:49 by htalhaou         ###   ########.fr       */
+/*   Created: 2023/08/11 12:06:27 by htalhaou          #+#    #+#             */
+/*   Updated: 2023/08/11 12:37:12 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
-# include <iostream>
-# include <string>
-# include <iomanip>
-# include "Contact.hpp"
+#include "Zombie.hpp"
 
-class PhoneBook{
-	
-	private:
-		Contact contacts[8];
-		int nb_of_contacts;
-	public:
-		PhoneBook();
-		void add_contact(Contact contact);
-		void search_contact();
-		void print_contact(Contact contact);
-		void exit_prog();
-		void start();
-};
-
-#endif
+int main(void)
+{
+	Zombie *zombies = zombieHorde(5, "hamza");
+	int i = 0;
+	while (i < 5)
+	{
+		zombies[i].announce();
+		i++;
+	}
+	delete [] zombies;
+	return (0);
+}

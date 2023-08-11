@@ -1,34 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 16:52:55 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/11 11:06:49 by htalhaou         ###   ########.fr       */
+/*   Created: 2023/08/10 21:22:31 by htalhaou          #+#    #+#             */
+/*   Updated: 2023/08/11 11:49:28 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
-# include <iostream>
-# include <string>
-# include <iomanip>
-# include "Contact.hpp"
+#include "Zombie.hpp"
 
-class PhoneBook{
-	
-	private:
-		Contact contacts[8];
-		int nb_of_contacts;
-	public:
-		PhoneBook();
-		void add_contact(Contact contact);
-		void search_contact();
-		void print_contact(Contact contact);
-		void exit_prog();
-		void start();
-};
+Zombie::Zombie()
+{
+	this->name = "hamza";
+}
 
-#endif
+Zombie::~Zombie()
+{
+    std::cout << this->name << " " << "destroyed" << std::endl;
+}
+
+
+void Zombie::announce(void)
+{
+    std::cout << this->name << " BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void Zombie::setName(std::string name)
+{
+	this->name = name;
+}
+
+std::string Zombie::getName(void)
+{
+	return (this->name);
+}
+
+
+
