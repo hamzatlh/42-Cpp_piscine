@@ -5,15 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/13 14:44:03 by htalhaou          #+#    #+#              #
-#    Updated: 2023/08/15 17:19:42 by htalhaou         ###   ########.fr        #
+#    Created: 2023/08/11 18:19:31 by htalhaou          #+#    #+#              #
+#    Updated: 2023/08/11 18:54:40 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = main.cpp \
-	  Harl.cpp
-	  
-NAME = harlFilter
+	  Weapon.cpp \
+	  HumanA.cpp \
+	  HumanB.cpp
+
+NAME = weapon
 
 OBJ = $(SRC:.cpp=.o)
 

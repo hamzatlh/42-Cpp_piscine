@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 16:52:22 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/06 14:23:13 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/08/13 17:02:53 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 
 class Contact{
-
 	private:
 		std::string first_name;
 		std::string last_name;
@@ -37,6 +36,5 @@ class Contact{
 		std::string get_phone_number();
 		std::string get_darkest_secret();
 };
-
 
 #endif

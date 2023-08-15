@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 14:50:25 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/13 10:55:04 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/08/15 17:57:14 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ int main(int argc, char **argv)
 	std::string filename = argv[1];
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
-	std::ifstream ifs(filename);
+	std::ifstream ifs(filename.c_str());
 	if (!ifs.is_open())
 	{
 		std::cout << "Error: could not open file" << std::endl;
 		return (1);
 	}
 	std::string new_filename = filename + ".replace";
-	std::ofstream ofs(new_filename);
+	std::ofstream ofs(new_filename.c_str());
 	if (!ofs.is_open())
 	{
 		std::cout << "Error: could not create output file" << std::endl;

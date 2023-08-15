@@ -6,13 +6,13 @@
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/11 12:06:01 by htalhaou          #+#    #+#              #
-#    Updated: 2023/08/11 12:46:47 by htalhaou         ###   ########.fr        #
+#    Updated: 2023/08/15 16:43:50 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = Zombie.cpp \
 	  main.cpp \
-	  zombieHorde.cpp
+	  ZombieHorde.cpp
 
 NAME = zombie
 

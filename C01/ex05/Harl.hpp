@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/11 12:07:10 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/15 12:48:17 by htalhaou         ###   ########.fr       */
+/*   Created: 2023/08/13 10:59:13 by htalhaou          #+#    #+#             */
+/*   Updated: 2023/08/15 16:35:57 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef Harl_HPP
+# define Harl_HPP
 
-Zombie* zombieHorde(int N, std::string name )
-{
-	Zombie *zombies = new Zombie[N];
-	int i = 0;
-	while (i < N)
-	{
-		zombies[i].setName(name);
-		i++;
-	}
-	return (zombies);
-}
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+
+class Harl{
+	private:
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
+	public:
+		void complain(std::string level);
+};
+
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 16:52:55 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/11 11:06:49 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/08/13 18:11:07 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <iostream>
 # include <string>
 # include <iomanip>
+# include <sstream>
 # include "Contact.hpp"
 
 class PhoneBook{
