@@ -5,18 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/10 21:22:02 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/18 08:55:20 by htalhaou         ###   ########.fr       */
+/*   Created: 2023/08/20 17:51:36 by htalhaou          #+#    #+#             */
+/*   Updated: 2023/08/21 13:07:56 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Fixed.hpp"
 
-int main()
+int main(void)
 {
-	Zombie *z1 = newZombie("foo");
-	z1->announce();
-	randomChump("bar");
-	delete (z1);
-	return (0);
+	Fixed a;
+	Fixed const b(Fixed(5.05f) * Fixed(2));
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max(a, b) << std::endl;
+	return 0;
 }
+

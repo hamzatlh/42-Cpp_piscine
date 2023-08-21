@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 14:44:36 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/13 15:33:18 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/08/18 20:53:06 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void Harl::complain(std::string level)
 		this->debug();
 	case 1:
 		this->info();
-	case 02:
+	case 2:
 		this->warning();
-	case 03:
+	case 3:
 		this->error();
 		break;
 	default :

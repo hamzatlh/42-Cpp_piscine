@@ -5,18 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/10 21:22:02 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/18 08:55:20 by htalhaou         ###   ########.fr       */
+/*   Created: 2023/08/16 08:51:27 by htalhaou          #+#    #+#             */
+/*   Updated: 2023/08/19 11:48:16 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Fixed.hpp"
 
 int main()
 {
-	Zombie *z1 = newZombie("foo");
-	z1->announce();
-	randomChump("bar");
-	delete (z1);
-	return (0);
+	Fixed a;
+	Fixed b(a);
+	Fixed c;
+	
+	c = b;
+	
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;	
+	return 0;
 }
