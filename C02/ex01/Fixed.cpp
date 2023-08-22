@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 12:52:33 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/20 18:06:35 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/08/21 13:50:23 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,12 @@ Fixed::Fixed(const float n)
 	this->value = roundf(n * 256);
 }
 
-float Fixed::toFloat( void ) const
+float Fixed::toFloat(void) const
 {
 	return ((float)this->value / 256);
 }
 
-int Fixed::toInt( void ) const
+int Fixed::toInt(void) const
 {
 	return (this->value / 256);
 }

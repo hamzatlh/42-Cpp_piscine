@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 17:52:01 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/21 12:58:33 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/08/21 16:26:53 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int Fixed::toInt(void) const
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
 {
 	os << fixed.toFloat();
-	return os;
+	return (os);
 }
 
 //comparison operators
@@ -100,7 +100,7 @@ bool Fixed::operator>=(const Fixed &fixed)
 
 bool Fixed::operator<=(const Fixed &fixed)
 {
-	if (this->toFloat() >= fixed.toFloat())
+	if (this->toFloat() <= fixed.toFloat())
 		return (1);
 	else
 		return (0);
@@ -141,7 +141,7 @@ Fixed Fixed::operator-(const Fixed &fixed)
 Fixed Fixed::operator*(const Fixed &fixed)
 {
 	Fixed newFixed;
-	newFixed.setRawBits(this->value * fixed.getRawBits() / 256);
+	newFixed.setRawBits((this->value * fixed.getRawBits()) / 256);
 	return (newFixed);
 }
 
@@ -202,8 +202,12 @@ Fixed& Fixed::operator--()
 
 Fixed Fixed::operator++(int)
 {
+	this->value = 10;
 	Fixed newFixed(*this);
 	this->value++;
+	std::cout << this->value << std::endl;
+	std::cout << newFixed.value;
+	exit(1);
 	return (newFixed);
 }
 

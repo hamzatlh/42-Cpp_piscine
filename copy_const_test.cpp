@@ -5,7 +5,7 @@ class Sample{
 	private :
 	int a;
 	int b;
-	public :
+	public : 
 	Sample (int a, int b)
 	{
 		std::cout << "constractor called" << std::endl;
