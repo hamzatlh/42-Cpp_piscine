@@ -6,12 +6,12 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 15:32:05 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/25 19:02:48 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/08/26 12:36:37 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 # include <iostream>
 # include <string>
 # include <iomanip>

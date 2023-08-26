@@ -6,12 +6,12 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 15:32:05 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/24 16:39:14 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/08/26 12:33:01 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 # include <iostream>
 # include <string>
 # include <iomanip>

@@ -6,20 +6,21 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 15:32:20 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/25 12:51:05 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/08/26 13:03:14 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(): Hit_points(2), Energy_points(2), Attack_damage(2)
+ClapTrap::ClapTrap(): Hit_points(10), Energy_points(10), Attack_damage(0)
 {
 	// std::cout << "ClapTrap default constructor called" << std::endl;
+	this->name = "hamza";
 }
 
-ClapTrap::ClapTrap(std::string name): Hit_points(2), Energy_points(2), Attack_damage(2)
+ClapTrap::ClapTrap(std::string name): Hit_points(10), Energy_points(10), Attack_damage(0)
 {
-	// std::cout << "ClapTrap constructor called" << std::endl;
+	// std::cout << "ClapTrap name constructor called" << std::endl;
 	this->name = name;
 }
 
@@ -31,7 +32,7 @@ ClapTrap::ClapTrap(const ClapTrap& old)
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& old)
 {
-	// std::cout << "ClapTrap assignement operator called" << std::endl;
+	// std::cout << "ClapTrap copy assignement operator called" << std::endl;
 	this->name = old.name;
 	this->Hit_points = old.Hit_points;
 	this->Energy_points = old.Energy_points;
@@ -57,7 +58,7 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->Hit_points > 0)
+	if (this->Hit_points > 0 && this->Energy_points > 0)
 		{
 			std::cout << "ClapTrap " << this->name << " take " << amount << " points of damage!" << std::endl;
 			Hit_points -= amount;
@@ -68,10 +69,11 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->Energy_points > 0)
+	if (this->Energy_points > 0 && this->Hit_points > 0)
 		{
 			std::cout << "ClapTrap " << this->name << " be repaired " << amount << " points of damage!" << std::endl;
 			Hit_points += amount;
+			Energy_points -= 1;
 		}
 	else
 		std::cout << "ClapTrap " << this->name << " can't do nothing" << std::endl;

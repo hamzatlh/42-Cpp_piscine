@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 15:30:52 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/25 19:03:26 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/08/26 14:13:27 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 
 int main()
 {
-	ScavTrap s1("s1");
+	FragTrap s1("s1");
+	ClapTrap s2(s1);
+	// FragTrap s3 = s2;
 
-	s1.attack("s2");
-	s1.beRepaired(5);
-	s1.attack("s2");
-	s1.attack("s2");
-	// ScavTrap S2("s2");
-	// ScavTrap S3(s1);
-	// ScavTrap s4;
+	// s1.attack("s2");
+	// s1.takeDamage(99);
+	// s1.beRepaired(1);
+	// s1.takeDamage(5);
+	// s1.attack("s2");
+	// s1.attack("s2");
+	// FragTrap S2("s2");
+	// FragTrap S3(s1);
+	// FragTrap s4;
 	// s4 = S2;
 	// s1.attack("s2");
 	// s1.attack("S2");
@@ -44,6 +48,6 @@ int main()
 	// S3.attack("S4");
 	// S4.takeDamage(5);
 	// S4.beRepaired(5);
-	// S2.guardGate();
+	s1.highFivesGuys();
 	return (0);
 }

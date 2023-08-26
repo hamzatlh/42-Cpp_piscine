@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 15:30:52 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/25 19:56:36 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/08/26 13:01:46 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ int main()
 	
 	// ScavTrap s2(s1);
 
+	s1.beRepaired(5);
 	s1.attack("s2");
-	// s1.beRepaired(5);
+	s1.beRepaired(5);
+	s1.beRepaired(5);
 	// s1.attack("s2");
 	// s1.attack("s2");
 	// ScavTrap S2("s2");

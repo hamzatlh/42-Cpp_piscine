@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 15:32:05 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/23 08:37:58 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/08/26 10:17:05 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ class ClapTrap {
 		std::string get_name();
 		int get_hit_points();
 		int get_energy_points();
-		int get_attack_damage();
-		
+		int get_attack_damage();	
 };
 
 #endif

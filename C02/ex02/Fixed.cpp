@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 17:52:01 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/21 16:26:53 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/08/26 10:18:25 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,7 +196,7 @@ Fixed& Fixed::operator++()
 
 Fixed& Fixed::operator--()
 {
-	this->value++;
+	this->value--;
 	return (*this);
 }
 

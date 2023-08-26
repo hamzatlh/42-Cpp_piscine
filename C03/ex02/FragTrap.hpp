@@ -6,11 +6,14 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 18:59:43 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/25 19:18:09 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/08/26 12:38:11 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"	
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
+
+# include "ClapTrap.hpp"	
 
 class FragTrap : public ClapTrap
 {
@@ -23,3 +26,5 @@ class FragTrap : public ClapTrap
 		void highFivesGuys();
 		void attack(const std::string& target);
 };
+
+#endif

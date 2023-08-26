@@ -6,15 +6,16 @@
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/22 15:29:51 by htalhaou          #+#    #+#              #
-#    Updated: 2023/08/24 21:03:05 by htalhaou         ###   ########.fr        #
+#    Updated: 2023/08/26 12:43:18 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = main.cpp \
 	  ClapTrap.cpp \
-	  ScavTrap.cpp
+	  ScavTrap.cpp \
+	  FragTrap.cpp
 
-NAME = ScavTrap
+NAME = FragTrap
 
 OBJ = $(SRC:.cpp=.o)
 
