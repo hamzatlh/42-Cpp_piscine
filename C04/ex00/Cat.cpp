@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 11:44:51 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/01 12:45:33 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/01 13:00:01 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,4 @@ Cat::~Cat()
 void Cat::makeSound() const
 {
 	std::cout << "Cat sound" << std::endl;
-}
-std::string Cat::getType() const
-{
-	return (this->type);
 }

@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 11:28:13 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/01 12:43:51 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/01 12:59:55 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class Dog : public Animal{
 		Dog (const Dog& old);
 		Dog& operator=(const Dog& old);
 		~Dog();
-		std::string getType() const;
 		void makeSound() const;
 };
 

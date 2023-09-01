@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:19:40 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/01 12:47:24 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/01 12:57:42 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,5 @@ int main()
 	i->makeSound();
 	j->makeSound();
 	meta->makeSound();
-	delete meta;
-	delete j;
-	delete i;
 	return (0);
 }

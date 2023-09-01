@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 11:28:06 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/01 12:45:43 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/01 13:00:08 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,6 @@ Dog::~Dog()
 	std::cout << "Dog destructor called" << std::endl;
 }
 
-std::string Dog::getType() const
-{
-	return (this->type);
-}
 void Dog::makeSound() const
 {
 	std::cout << "Dog sound" << std::endl;
