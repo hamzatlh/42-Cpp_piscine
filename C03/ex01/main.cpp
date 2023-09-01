@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 15:30:52 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/26 13:01:46 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/01 10:26:26 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 int main()
 {
 	// ClapTrap s1;
-	ScavTrap s1;
+	ScavTrap s1("s2");
 
 	// std::cout << s1.name << "\n";
 	
 	// ScavTrap s2(s1);
 
-	s1.beRepaired(5);
+	// s1.beRepaired(5);
 	s1.attack("s2");
-	s1.beRepaired(5);
-	s1.beRepaired(5);
+	// s1.beRepaired(5);
+	// s1.beRepaired(5);
 	// s1.attack("s2");
 	// s1.attack("s2");
 	// ScavTrap S2("s2");

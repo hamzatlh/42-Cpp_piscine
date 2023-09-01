@@ -5,41 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 15:30:52 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/30 20:00:26 by htalhaou         ###   ########.fr       */
+/*   Created: 2023/09/01 10:19:40 by htalhaou          #+#    #+#             */
+/*   Updated: 2023/09/01 12:47:24 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 int main()
 {
-	ClapTrap S1("S1");
-	ClapTrap S2("S2");
-	ClapTrap S3("S3");
-	ClapTrap S4("S4");
-	ClapTrap s5;
-	s5.attack("s5");
-	S1.attack("S2");
-	S2.beRepaired(5);
-	S2.takeDamage(5);
-	S2.takeDamage(5);
-	S2.takeDamage(5);
-	S1.attack("S3");
-	S3 = S1;
-	S3.takeDamage(5);
-	S3.takeDamage(5);
-	S3.takeDamage(5);
-	S2.beRepaired(5);
-	S2.takeDamage(5);
-	S2.takeDamage(5);
-	S2.beRepaired(5);
-	S3.attack("S4");
-	S4.takeDamage(5);
-	S4.beRepaired(5);
-	S4.takeDamage(5);
-	S4.takeDamage(5);
-	S4.takeDamage(5);
-	S4.takeDamage(5);
-
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound();
+	j->makeSound();
+	meta->makeSound();
+	delete meta;
+	delete j;
+	delete i;
+	return (0);
 }

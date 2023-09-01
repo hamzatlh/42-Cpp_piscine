@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 15:32:20 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/26 13:03:14 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/01 12:48:39 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 ClapTrap::ClapTrap(): Hit_points(10), Energy_points(10), Attack_damage(0)
 {
-	// std::cout << "ClapTrap default constructor called" << std::endl;
+	std::cout << "ClapTrap default constructor called" << std::endl;
 	this->name = "hamza";
 }
 
 ClapTrap::ClapTrap(std::string name): Hit_points(10), Energy_points(10), Attack_damage(0)
 {
-	// std::cout << "ClapTrap name constructor called" << std::endl;
+	std::cout << "ClapTrap name constructor called" << std::endl;
 	this->name = name;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& old)
 {
-	// std::cout << "ClapTrap copy constructor called" << std::endl;
+	std::cout << "ClapTrap copy constructor called" << std::endl;
 	(*this) = old;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& old)
 {
-	// std::cout << "ClapTrap copy assignement operator called" << std::endl;
+	std::cout << "ClapTrap copy assignement operator called" << std::endl;
 	this->name = old.name;
 	this->Hit_points = old.Hit_points;
 	this->Energy_points = old.Energy_points;
@@ -42,7 +42,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& old)
 
 ClapTrap::~ClapTrap()
 {
-	// std::cout << "ClapTrap destructor called" << std::endl;
+	std::cout << "ClapTrap destructor called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
@@ -79,10 +79,10 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap " << this->name << " can't do nothing" << std::endl;
 }
 
-std::string ClapTrap::get_name()
-{
-	return (this->name);
-}
+// std::string ClapTrap::get_name()
+// {
+// 	return (this->name);
+// }
 
 int ClapTrap::get_hit_points()
 {
