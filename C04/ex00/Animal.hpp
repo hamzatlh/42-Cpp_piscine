@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:22:03 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/01 12:42:41 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/01 16:11:54 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Animal{
 		Animal(const Animal& old);
 		Animal& operator=(const Animal& old);
 		~Animal();
+		
 		std::string getType() const;
 		virtual void makeSound() const;
 };
