@@ -6,12 +6,12 @@
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/01 10:19:43 by htalhaou          #+#    #+#              #
-#    Updated: 2023/09/02 13:23:40 by htalhaou         ###   ########.fr        #
+#    Updated: 2023/09/02 19:55:41 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = main.cpp \
-	  Animal.cpp \
+	  AAnimal.cpp \
 	  Cat.cpp \
 	  Dog.cpp \
 	  Brain.cpp
