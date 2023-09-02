@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 15:30:52 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/30 20:00:26 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/02 20:47:42 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,4 @@ int main()
 	S4.takeDamage(5);
 	S4.takeDamage(5);
 	S4.takeDamage(5);
-
 }

@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 15:32:05 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/08/26 12:36:37 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/02 20:51:52 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class ClapTrap {
 	protected :
-		std::string name;
+		std::string Name;
 		int Hit_points;
 		int Energy_points;
 		int Attack_damage;
@@ -35,6 +35,7 @@ class ClapTrap {
 		int get_hit_points();
 		int get_energy_points();
 		int get_attack_damage();
+		
 };
 
 #endif
