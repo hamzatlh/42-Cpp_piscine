@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:19:40 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/02 14:36:17 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/02 20:41:44 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,24 @@
 #include "Cat.hpp"
 #include "Brain.hpp"
 
+#define SIZE 10 
 int main()
 {
-	// const Animal *j[4];
-	const Animal **j = new const Animal*[4];
-	for(int i = 0; i < 2; i++)
+
+	const Animal *animal[SIZE];
+	int i; 
+	// const Animal **animal = new const Animal*[SIZE];
+	for(i = 0; i < SIZE; i++)
 	{
-		j[i] = new Dog;
+		if (i < SIZE / 2)
+			animal[i] = new Dog();
+		else
+			animal[i] = new Cat();
 	}
-	for(int i = 2; i < 4; i++)
+	for(int i = 0; i < SIZE; i++)
 	{
-		j[i] = new Cat;
+		delete animal[i];
 	}
-	for(int i = 0; i < 4; i++)
-	{
-		delete j[i];
-	}
-	delete [] j;
 	return 0;
 }
+
