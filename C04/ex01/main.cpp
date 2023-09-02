@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/01 10:22:03 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/01 17:50:59 by htalhaou         ###   ########.fr       */
+/*   Created: 2023/09/01 10:19:40 by htalhaou          #+#    #+#             */
+/*   Updated: 2023/09/02 14:36:17 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
-# include <iostream>
-# include <string>
-# include <iomanip>
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "Brain.hpp"
 
-class Animal{
-	protected:
-		std::string type;
-	public:
-		Animal();
-		Animal(const Animal& old);
-		Animal& operator=(const Animal& old);
-		virtual ~Animal();
-		std::string getType() const;
-		virtual void makeSound() const;
-};
-
-#endif
+int main()
+{
+	// const Animal *j[4];
+	const Animal **j = new const Animal*[4];
+	for(int i = 0; i < 2; i++)
+	{
+		j[i] = new Dog;
+	}
+	for(int i = 2; i < 4; i++)
+	{
+		j[i] = new Cat;
+	}
+	for(int i = 0; i < 4; i++)
+	{
+		delete j[i];
+	}
+	delete [] j;
+	return 0;
+}

@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/01 11:44:51 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/01 15:55:18 by htalhaou         ###   ########.fr       */
+/*   Created: 2023/09/02 12:20:04 by htalhaou          #+#    #+#             */
+/*   Updated: 2023/09/02 17:50:10 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Brain.hpp"
 
-Cat::Cat()
+Brain::Brain()
 {
-	std::cout << "Cat constructor called" << std::endl;
-	this->type = "Cat";
+	std::cout << "Brain Default constructor called" << std::endl;
 }
 
-Cat::Cat (const Cat& old)
+Brain::Brain(const Brain& old)
 {
-	std::cout << "Cat copy constructor called" << std::endl;
+	std::cout << "Brain Copy constructor called" << std::endl;
 	*this = old;
 }
 
-Cat& Cat::operator=(const Cat& old)
+Brain& Brain::operator=(const Brain& old)
 {
-	std::cout << "Cat assignation operator called" << std::endl;
-	this->type = old.type;
+	std::cout << "Brain Assignation operator called" << std::endl;
+	for (int i = 0; i < 100; i++)
+	{
+		ideas[i] = old.ideas[i];
+	}
 	return (*this);
 }
 
-Cat::~Cat()
+Brain::~Brain()
 {
-	std::cout << "Cat destructor called" << std::endl;
-}
-
-void Cat::makeSound() const
-{
-	std::cout << "Cat sound" << std::endl;
+	std::cout << "Brain Destructor called" << std::endl;
 }

@@ -6,7 +6,7 @@
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/01 10:19:43 by htalhaou          #+#    #+#              #
-#    Updated: 2023/09/02 12:09:11 by htalhaou         ###   ########.fr        #
+#    Updated: 2023/09/02 13:23:40 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,7 @@ SRC = main.cpp \
 	  Animal.cpp \
 	  Cat.cpp \
 	  Dog.cpp \
-	  WrongAnimal.cpp \
-	  WrongCat.cpp
+	  Brain.cpp
 
 NAME = Animal
 
