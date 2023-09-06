@@ -6,12 +6,10 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 19:57:52 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/03 20:07:51 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/05 19:24:08 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ICharacter.hpp"
 
-ICharacter::~ICharacter()
-{
-}
+

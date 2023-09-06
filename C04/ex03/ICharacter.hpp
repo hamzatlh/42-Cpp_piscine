@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 19:58:05 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/03 20:27:06 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/06 13:16:22 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 #include "AMateria.hpp"
 
+class AMateria;
+
 class ICharacter
 {
-	private:
-		std::string name;
 	public:
 		virtual ~ICharacter() {}
 		virtual std::string const& getName() const = 0;
@@ -26,6 +26,4 @@ class ICharacter
 		virtual void unequip(int idx) = 0;
 		virtual void use(int idx, ICharacter& target) = 0;
 };
-
-
 #endif

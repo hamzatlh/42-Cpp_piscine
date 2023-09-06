@@ -6,20 +6,24 @@
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/03 10:54:32 by htalhaou          #+#    #+#              #
-#    Updated: 2023/09/03 16:31:39 by htalhaou         ###   ########.fr        #
+#    Updated: 2023/09/06 11:56:52 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = main.cpp \
 	  AMateria.cpp \
 	  Cure.cpp \
-	  Ice.cpp
+	  Ice.cpp \
+	  Character.cpp \
+	  ICharacter.cpp \
+	  MateriaSource.cpp \
+	  IMateriaSource.cpp
 	  
-NAME = Animal
+NAME = Interface
 
 OBJ = $(SRC:.cpp=.o)
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
 
 CC = c++
 

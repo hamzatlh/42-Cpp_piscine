@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 11:28:06 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/02 13:38:48 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/06 15:52:45 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,16 @@ Dog::Dog (const Dog& old)
 	*this = old;
 }
 
+// # include <stdio.h>
+
 Dog& Dog::operator=(const Dog& old)
 {
 	std::cout << "Dog assignation operator called" << std::endl;
 	this->type = old.type;
-	this->brain = new Brain(*old.brain);;
+	// this->brain = 0x046495;
+	printf("%p\n", brain);
+	delete this->brain;
+	this->brain = new Brain(*old.brain);
 	return (*this);
 }
 

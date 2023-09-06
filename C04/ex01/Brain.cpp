@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 12:20:04 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/02 17:50:10 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/06 15:26:43 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ Brain& Brain::operator=(const Brain& old)
 	{
 		ideas[i] = old.ideas[i];
 	}
+	
 	return (*this);
 }
 
