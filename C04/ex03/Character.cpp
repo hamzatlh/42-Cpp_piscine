@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 20:50:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/06 18:18:48 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/06 18:57:42 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,7 @@ Character::Character(const Character& old)
 {
 	std::cout << "Character copy constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
-	{
-        this->Inventory[i] = NULL;
-		// delete this->temp[i];
-	}
+        	this->Inventory[i] = NULL;
 	*this = old;
 }
 
@@ -51,36 +48,22 @@ Character& Character::operator=(const Character& old)
     if (this == &old)
         return *this;
     this->Name = old.Name;
-	// this->Scount = old.Scount;
-
     for (int i = 0; i < 4; i++)
 	{
 		if(this->Inventory[i])
-        	delete this->Inventory[i];
+				{
+					delete this->Inventory[i];
+					this->Inventory[i] = NULL;
+				}
 	}
-	// int i = 0;
-	// while (i < INT_MAX)
-	// {
-	// 	// this->temp[i] = NULL;
-	// 	delete this->temp[i];
-	// 	i++;
-	// }
     for (int i = 0; i < 4; i++)
 	{
-        if (old.Inventory[i] != NULL)
+        if (old.Inventory[i])
 		{
 			this->Inventory[i] = old.Inventory[i]->clone();
-			// this->temp[i] = old.temp[i]->clone();
+			this->tmp[i] = old.tmp[i];
 		}
 	}
-	// i = 0;
-	// while (i < INT_MAX)
-	// {
-	// 	// this->temp[i] = NULL;
-	// 	if (old.temp[i] != NULL)
-	// 		this->temp[i] = old.temp[i]->clone();
-	// 	i++;
-	// }
     return (*this);
 }
 
@@ -91,18 +74,8 @@ Character::~Character()
     for (int i = 0; i < 4; i++)
 	{
 		if(this->Inventory[i])
-		{
 			delete (this->Inventory[i]);
-			// delete (this->temp[i]);
-		}
 	}
-	// int i = 0;
-	// while (i < INT_MAX)
-	// {
-	// 	if(this->temp[i])
-	// 		delete (this->temp[i]);
-	// 	i++;
-	// }
 }
 
 
@@ -125,11 +98,8 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-	// freeAllocation();
 	if ((idx >= 0 && idx < 4) && this->Inventory[idx] != NULL)
 	{
-		// temp[Scount++] = this->Inventory[idx];
-		// temp[Scount] = NULL;
 		// this->Inventory[idx] = NULL;
 		this->tmp[idx] = true;
 	}
@@ -142,9 +112,7 @@ void Character::use(int idx, ICharacter& target)
 	if (idx < 0 || idx > 3)
 		return ; 
 	if (Inventory[idx])
-	{
 		Inventory[idx]->use(target);
-	}
 }
 
 std::string const& Character::getName() const
