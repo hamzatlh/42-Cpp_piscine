@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 19:21:52 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/05 19:56:42 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/06 18:23:54 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,3 +53,12 @@ void MateriaSource::learnMateria(AMateria* m)
 	}
 }
 
+AMateria* MateriaSource::createMateria(std::string const& type)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->materias[i] && this->materias[i]->getType() == type)
+			return (this->materias[i]->clone());
+	}
+	return (NULL);
+}
