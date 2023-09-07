@@ -6,11 +6,11 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:19:40 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/02 19:56:34 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/07 12:14:25 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AAnimal.hpp"
+#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "Brain.hpp"
@@ -25,4 +25,6 @@ int main()
 	c->makeSound();
 	delete b;
 	delete c;
+	return(0);
 }
+

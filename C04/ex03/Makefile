@@ -6,7 +6,7 @@
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/03 10:54:32 by htalhaou          #+#    #+#              #
-#    Updated: 2023/09/06 11:56:52 by htalhaou         ###   ########.fr        #
+#    Updated: 2023/09/07 12:58:24 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,16 +15,13 @@ SRC = main.cpp \
 	  Cure.cpp \
 	  Ice.cpp \
 	  Character.cpp \
-	  ICharacter.cpp \
-	  MateriaSource.cpp \
-	  IMateriaSource.cpp
+	  MateriaSource.cpp 
 	  
 NAME = Interface
 
 OBJ = $(SRC:.cpp=.o)
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
-
+FLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++
 
 %.o: %.cpp

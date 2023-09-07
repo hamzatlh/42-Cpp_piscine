@@ -6,7 +6,7 @@
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/01 10:19:43 by htalhaou          #+#    #+#              #
-#    Updated: 2023/09/02 20:25:09 by htalhaou         ###   ########.fr        #
+#    Updated: 2023/09/07 11:34:14 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME = Animal
 
 OBJ = $(SRC:.cpp=.o)
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 
+FLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
 
 CC = c++
 

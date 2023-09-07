@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 12:20:04 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/06 15:26:43 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/07 11:32:41 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 Brain::Brain()
 {
 	std::cout << "Brain Default constructor called" << std::endl;
+	for(int i=0; i < 100; i++)
+		ideas[i] = "def";
 }
 
 Brain::Brain(const Brain& old)
@@ -26,11 +28,11 @@ Brain::Brain(const Brain& old)
 Brain& Brain::operator=(const Brain& old)
 {
 	std::cout << "Brain Assignation operator called" << std::endl;
-	for (int i = 0; i < 100; i++)
+	if (this != &old)
 	{
-		ideas[i] = old.ideas[i];
+		for (int i = 0; i < 100; i++)
+			ideas[i] = old.ideas[i];
 	}
-	
 	return (*this);
 }
 

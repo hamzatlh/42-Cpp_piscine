@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 20:50:35 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/06 16:39:42 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/07 12:18:56 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Character : public ICharacter
 		std::string Name;
 		AMateria*	Inventory[4];
 		bool 		tmp[4];
-		// int Scount;
 	public:
 		Character();
 		Character(std::string const& name);
@@ -33,9 +32,7 @@ class Character : public ICharacter
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
 		std::string const& getName() const;
-
-
-	void freeAllocation(void);
+		void freeAllocation(void);
 
 
 };

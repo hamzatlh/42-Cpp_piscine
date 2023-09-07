@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:22:03 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/02 19:38:53 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/07 12:08:36 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-# define AANIMAL_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 # include <iostream>
 # include <string>
 # include <iomanip>

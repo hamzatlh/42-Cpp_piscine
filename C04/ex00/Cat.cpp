@@ -6,19 +6,19 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 11:44:51 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/01 15:55:18 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/07 11:12:13 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat():Animal()
 {
 	std::cout << "Cat constructor called" << std::endl;
 	this->type = "Cat";
 }
 
-Cat::Cat (const Cat& old)
+Cat::Cat (const Cat& old):Animal(old)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
 	*this = old;

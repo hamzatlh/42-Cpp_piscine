@@ -6,19 +6,19 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 11:28:06 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/01 13:00:08 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/07 11:12:41 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog():Animal()
 {
 	std::cout << "Dog constructor called" << std::endl;
 	this->type = "Dog";
 }
 
-Dog::Dog (const Dog& old)
+Dog::Dog (const Dog& old):Animal(old)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
 	*this = old;

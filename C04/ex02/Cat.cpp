@@ -22,14 +22,27 @@ Cat::Cat()
 Cat::Cat (const Cat& old)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
-	*this = old;
+	this->type = old.type;
+	if (this != &old)
+	{
+		delete this->brain;
+		this->type = old.type;
+		if (old.brain)
+            this->brain = new Brain(*old.brain);
+	}
 }
 
 Cat& Cat::operator=(const Cat& old)
 {
 	std::cout << "Cat assignation operator called" << std::endl;
 	this->type = old.type;
-	this->brain = new Brain(*old.brain);
+	if (this != &old)
+	{
+		delete this->brain;
+		this->type = old.type;
+		if (old.brain)
+            this->brain = new Brain(*old.brain);
+	}
 	return (*this);
 }
 

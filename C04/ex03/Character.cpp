@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 20:50:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/06 18:57:42 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/07 12:52:28 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Character::Character(const Character& old)
 {
 	std::cout << "Character copy constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
-        	this->Inventory[i] = NULL;
+        this->Inventory[i] = NULL;
 	*this = old;
 }
 
@@ -51,10 +51,10 @@ Character& Character::operator=(const Character& old)
     for (int i = 0; i < 4; i++)
 	{
 		if(this->Inventory[i])
-				{
-					delete this->Inventory[i];
-					this->Inventory[i] = NULL;
-				}
+		{
+			delete this->Inventory[i];
+			this->Inventory[i] = NULL;
+		}
 	}
     for (int i = 0; i < 4; i++)
 	{
