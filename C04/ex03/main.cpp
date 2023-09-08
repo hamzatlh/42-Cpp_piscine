@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 10:54:24 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/07 12:57:42 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/08 12:02:00 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
 
-int main()
+int mai()
 {
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
@@ -35,12 +35,13 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
+
 	return (0);
 }
 
-// int main()
-// {
-// 	mai();
-// 	while (1);
-// 	return (0);
-// }
+int main()
+{
+	mai();
+	while (1);
+	return (0);
+}

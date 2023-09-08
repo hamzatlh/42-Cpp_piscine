@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 10:55:27 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/07 12:17:45 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/08 11:50:53 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ class AMateria{
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
 		void setType(std::string const& type);
-		std::string const& getName() const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 11:28:06 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/07 12:02:19 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/08 11:06:17 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,8 @@ Dog::Dog()
 Dog::Dog (const Dog& old) : Animal(old)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
-	if (this != &old)
-	{
-		delete this->brain;
-		this->type = old.type;
-		if (old.brain)
-            this->brain = new Brain(*old.brain);
-	}
+	this->brain = new Brain();
+	(*this) = old;
 }
 
 

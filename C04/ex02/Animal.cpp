@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:21:55 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/07 12:08:39 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/08 11:45:34 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ AAnimal::AAnimal(const AAnimal& old)
 AAnimal& AAnimal::operator=(const AAnimal& old)
 {
 	std::cout << "AAnimal Assignation operator called" << std::endl;
-	type = old.type;
+	if (this != &old)
+		type = old.type;
 	return (*this);
 }
 

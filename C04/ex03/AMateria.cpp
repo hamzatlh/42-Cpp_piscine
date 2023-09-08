@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 10:55:15 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/07 12:17:52 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/08 11:46:41 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ AMateria::AMateria(const AMateria& old)
 AMateria& AMateria::operator=(const AMateria& old)
 {
 	std::cout << "AMateria assignation operator called" << std::endl;
-	this->type = old.type;
+	if (this != &old)
+		this->type = old.type;
 	return (*this);
 }
 

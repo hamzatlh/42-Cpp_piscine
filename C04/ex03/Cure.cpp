@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:31:07 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/05 17:44:27 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/08 11:52:49 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ Cure::Cure(const Cure& old) : AMateria(old)
 
 Cure& Cure::operator=(const Cure& old)
 {
-	(void)old;
 	std::cout << "Cure assignation operator called" << std::endl;
+	if (this != &old)
+		this->type = old.type;
 	return (*this);
 }
 

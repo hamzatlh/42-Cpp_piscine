@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:30:45 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/05 18:56:06 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/08 11:53:37 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ Ice::Ice(const Ice& old) : AMateria(old)
 
 Ice& Ice::operator=(const Ice& old)
 {
-	(void)old;
 	std::cout << "Ice assignation operator called" << std::endl;
+	if (this != &old)
+		this->type = old.type;
 	return (*this);
 }
 
