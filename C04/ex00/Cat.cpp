@@ -6,13 +6,13 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 11:44:51 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/08 11:21:19 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/08 15:35:20 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat() 
 {
 	std::cout << "Cat constructor called" << std::endl;
 	this->type = "Cat";

@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:21:55 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/08 11:45:34 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/08 15:52:44 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 AAnimal::AAnimal()
 {
 	std::cout << "AAnimal Default constructor called" << std::endl;
+	this->type = "Animal";
 }
 
 AAnimal::AAnimal(const AAnimal& old)

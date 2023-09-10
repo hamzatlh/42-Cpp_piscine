@@ -5,23 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/01 10:19:43 by htalhaou          #+#    #+#              #
-#    Updated: 2023/09/08 15:46:08 by htalhaou         ###   ########.fr        #
+#    Created: 2023/09/03 10:54:32 by htalhaou          #+#    #+#              #
+#    Updated: 2023/09/10 12:12:26 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = main.cpp \
-	  Animal.cpp \
-	  Cat.cpp \
-	  Dog.cpp \
-	  Brain.cpp
-
-NAME = Animal
+	  Bureaucrat.cpp
+	  
+NAME = Bureaucrat
 
 OBJ = $(SRC:.cpp=.o)
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
-
+FLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++
 
 %.o: %.cpp

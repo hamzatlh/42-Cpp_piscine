@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:30:45 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/08 11:53:37 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/08 17:24:07 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 Ice::Ice() : AMateria("ice")
 {
-	std::cout << "Ice default constructor called" << std::endl;
+	// std::cout << "Ice default constructor called" << std::endl;
 }
 
 Ice::Ice(std::string const& type) : AMateria(type)
 {
-	std::cout << "Ice type constructor called" << std::endl;
+	// std::cout << "Ice type constructor called" << std::endl;
 }
 
 Ice::Ice(const Ice& old) : AMateria(old)
 {
-	std::cout << "Ice copy constructor called" << std::endl;
+	// std::cout << "Ice copy constructor called" << std::endl;
 	(*this) = old;
 }
 
 Ice& Ice::operator=(const Ice& old)
 {
-	std::cout << "Ice assignation operator called" << std::endl;
+	// std::cout << "Ice assignation operator called" << std::endl;
 	if (this != &old)
 		this->type = old.type;
 	return (*this);
@@ -38,7 +38,7 @@ Ice& Ice::operator=(const Ice& old)
 
 Ice::~Ice()
 {
-	std::cout << "Ice destructor called" << std::endl;
+	// std::cout << "Ice destructor called" << std::endl;
 }
 
 AMateria* Ice::clone() const

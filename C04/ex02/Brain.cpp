@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 12:20:04 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/08 11:45:59 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/08 15:51:33 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 Brain::Brain()
 {
 	std::cout << "Brain Default constructor called" << std::endl;
+	for(int i=0; i < 100; i++)
+		ideas[i] = "def";
 }
 
 Brain::Brain(const Brain& old)

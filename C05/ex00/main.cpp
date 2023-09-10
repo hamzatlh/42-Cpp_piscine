@@ -5,42 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/01 10:19:40 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/08 15:47:37 by htalhaou         ###   ########.fr       */
+/*   Created: 2023/09/09 12:11:04 by htalhaou          #+#    #+#             */
+/*   Updated: 2023/09/10 16:02:22 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "Brain.hpp"
+#include "Bureaucrat.hpp"
 
-#define SIZE 10 
 int main()
 {
-	Animal* animal[SIZE];
-	int i; 
-	// const Animal **animal = new const Animal*[SIZE];
-	for(i = 0; i < SIZE; i++)
+	try
 	{
-		if (i < SIZE / 2)
-			animal[i] = new Dog();
-		else
-			animal[i] = new Cat();
+		Bureaucrat b("hassan", 1);
+		std::cout << b;
+		b.incrementGrade();
+		std::cout << b << std::endl;
+		// std::cout << b << std::endl;
+		// b.incrementGrade();
+		// std::cout << b << std::endl;
+		// b.incrementGrade();
+		// std::cout << b << std::endl;
+		// b.decrementGrade();
+		// std::cout << b << std::endl;
 	}
-	for(int i = 0; i < SIZE; i++)
+	catch(const std::exception& e)
 	{
-		delete animal[i];
+		std::cout << e.what() << '\n';
 	}
-
-	
-	return 0;
 }
-
-// int main()
-// {
-// 	mai();
-// 	while (1);
-// 	// system("leaks Animal -q");
-// }
-

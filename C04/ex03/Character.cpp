@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 20:50:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/08 10:21:50 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/08 17:23:30 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Character::Character()
 {
-	std::cout << "Character default constructor called" << std::endl;
+	// std::cout << "Character default constructor called" << std::endl;
 	this->Name = "default";
 	for(int i = 0; i < 4; i++)
 	{
@@ -25,7 +25,7 @@ Character::Character()
 
 Character::Character(std::string const& name)
 {
-	std::cout << "Character type constructor called" << std::endl;
+	// std::cout << "Character type constructor called" << std::endl;
 	this->Name = name;
 	for(int i = 0; i < 4; i++)
 	{
@@ -36,7 +36,7 @@ Character::Character(std::string const& name)
 
 Character::Character(const Character& old)
 {
-	std::cout << "Character copy constructor called" << std::endl;
+	// std::cout << "Character copy constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
         this->Inventory[i] = NULL;
 	*this = old;
@@ -44,7 +44,7 @@ Character::Character(const Character& old)
 
 Character& Character::operator=(const Character& old)
 {
-    std::cout << "Character assignment operator called" << std::endl;
+    // std::cout << "Character assignment operator called" << std::endl;
     if (this == &old)
         return *this;
     this->Name = old.Name;
@@ -70,7 +70,7 @@ Character& Character::operator=(const Character& old)
 
 Character::~Character()
 {
-    std::cout << "Character destructor called" << std::endl;
+    // std::cout << "Character destructor called" << std::endl;
     for (int i = 0; i < 4; i++)
 	{
 		if(this->Inventory[i])
