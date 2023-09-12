@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 12:11:34 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/11 18:20:00 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/11 17:48:14 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ Bureaucrat::Bureaucrat(std::string name, int Grade) : name(name)
 	else
 		grade = Grade;
 }
+
 
 Bureaucrat::Bureaucrat(const Bureaucrat& old)
 {
@@ -93,4 +94,30 @@ void Bureaucrat::decrementGrade()
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->grade++;
+}
+
+void Bureaucrat::signForm(AForm& f)
+{
+	try
+	{
+		f.beSigned(*this);
+		std::cout << f.getName() << " signed " << this->getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << f.getName() << " couldn't sign " << this->getName() << " because " << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm const& form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " executes " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << this->getName() << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
+	}
 }

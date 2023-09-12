@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 10:54:24 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/10 13:45:52 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/10 16:29:24 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,20 +103,20 @@ void	test4()
 
 void	test5()
 {
-	AMateria *a = NULL;
-	Character *c = new Character;
+	Ice *a = new Ice;
+    Character *c = new Character;
 
-	c->equip(a);
-	c->equip(a);
-	c->equip(a);
-	c->equip(a);
-	c->unequip(0);
-	c->unequip(1);
-	c->unequip(2);
-	c->unequip(3);
-	c->unequip(4);
-	c->equip(a);
-	delete c;
+    c->equip(a);
+    c->unequip(0);
+    c->equip(a);
+    // c->unequip(1);
+    c->equip(a);
+    // c->unequip(2);
+    // c->equip(a);
+    // c->unequip(3);
+    // c->unequip(4);
+    // c->equip(a);
+    delete c;
 }
 
 void	test6()
@@ -203,18 +203,6 @@ int main()
 	// std::cout << "--------- test 8 ----------" << std::endl;
 	// test8();
 	// std::cout << "--------- test LEAKS ----------" << std::endl;
-	
-	ICharacter *i = new Character("bob");
-    
-    i->equip(new Cure());
-    i->equip(new Ice());
-    i->equip(new Cure());
-    i->equip(new Ice());
-    
-    i->unequip(1);
-    i->use(1, *i);
-    
-    i->unequip(0);
 	
 	system("leaks -q Interface");
 	return 0;

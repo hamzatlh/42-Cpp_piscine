@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/24 13:41:39 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/12 16:53:40 by htalhaou         ###   ########.fr       */
+/*   Created: 2023/09/09 12:11:04 by htalhaou          #+#    #+#             */
+/*   Updated: 2023/09/11 10:26:20 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#include "Form.hpp"
 
-# include "ClapTrap.hpp"	
-
-class ScavTrap : public ClapTrap
+int main()
 {
-	public:
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(ScavTrap const& old);
-		ScavTrap& operator=(ScavTrap const& old);
-		~ScavTrap();
-		void guardGate();
-		void attack(const std::string& target);
-
-};
-#endif
+	try
+	{
+		Bureaucrat b("b1", 1);
+		Form f("f1", 1, 1);
+		std::cout << f;
+		f.beSigned(b);
+		b.signForm(f);
+		std::cout << f;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	return (0);
+}

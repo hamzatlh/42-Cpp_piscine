@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/24 13:41:39 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/12 16:53:40 by htalhaou         ###   ########.fr       */
+/*   Created: 2023/09/11 20:42:54 by htalhaou          #+#    #+#             */
+/*   Updated: 2023/09/12 14:41:26 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef INTERN_HPP
+# define INTERN_HPP
 
-# include "ClapTrap.hpp"	
+#include <iostream>
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-class ScavTrap : public ClapTrap
+
+
+class AForm;
+
+class Intern
 {
-	public:
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(ScavTrap const& old);
-		ScavTrap& operator=(ScavTrap const& old);
-		~ScavTrap();
-		void guardGate();
-		void attack(const std::string& target);
+	private:
 
+	public:
+		Intern();
+		Intern(std::string name);
+		Intern(Intern const& src );
+		~Intern();
+		Intern& operator=(Intern const& old);
+		AForm *makeForm(std::string name, std::string target);
 };
+
 #endif

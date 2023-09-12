@@ -1,44 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/09 12:11:34 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/12 16:53:50 by htalhaou         ###   ########.fr       */
+/*   Created: 2023/09/10 16:17:51 by htalhaou          #+#    #+#             */
+/*   Updated: 2023/09/11 10:24:42 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
 
-# include <iostream>
+#include "Bureaucrat.hpp"
 
-class Bureaucrat{
+class Bureaucrat;
+class Form{
 	private :
 		const std::string name;
-		int grade;
+		bool Signed;
+		const int gradeToSign;
+		const int gradeToExecute;
 	public :
-		Bureaucrat();
-		~Bureaucrat();
-		Bureaucrat(std::string name, int Grade);
-		Bureaucrat& operator=(const Bureaucrat& old);
-		Bureaucrat(const Bureaucrat& old);
+		Form();
+		~Form();
+		Form& operator=(const Form& old);
+		Form(std::string name, int gradeToSign, int gradeToExecute);
+		Form(const Form& old);
 		std::string getName() const;
-		int getGrade() const;
+		bool getSigned() const;
+		int getGradeToSign() const;
+		int getGradeToExucute() const;
 		class GradeTooHighException : public std::exception{
 			public :
-				const char* what() const throw(); 
+				const char* what() const throw();
 		};
 		class GradeTooLowException : public std::exception{
 			public :
 				const char* what() const throw();
 		};
-		void incrementGrade();
-		void decrementGrade();
-		
+		void beSigned(Bureaucrat& b);
 };
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
+
+std::ostream& operator<<(std::ostream& os, const Form& f);
 
 #endif
