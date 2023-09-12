@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 20:43:04 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/12 15:04:14 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:53:17 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ AForm * Intern::makeForm(std::string name, std::string target)
 	switch (i)
 	{
 		case 0:
-			form = new ShrubberyCreationForm(target);
+			form = new RobotomyRequestForm(target);
 			std::cout << "Intern creates " << target << std::endl;
 			break;
 		case 1:
-			form = new RobotomyRequestForm(target);
+			form = new ShrubberyCreationForm(target);
 			std::cout << "Intern creates " << target << std::endl;
 			break;
 		case 2 :
