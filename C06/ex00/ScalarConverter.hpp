@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:34:29 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/13 20:36:41 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/13 22:32:10 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # define SCALARCONVERTER_HPP
 
 #include <iostream>
+#include <string>
+#include <iomanip>
 #include <climits>
 #include <cfloat>
 
