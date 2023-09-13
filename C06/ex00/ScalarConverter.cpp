@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:34:29 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/13 20:07:41 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/13 20:57:14 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& old)
 static int isChar(std::string str)
 {
 	if (str.length() == 1 && !std::isdigit(str[0]))
-		return (1);
+            	return (1);
 	return (0);
 }
 
@@ -64,9 +64,9 @@ static int isFloat(std::string str)
 	{
 		if (str[i] == '.')
 			dot++;
-		else if (!std::isdigit(str[i]))
-			return (0);
 		if (dot > 1)
+			return (0);
+		if (!std::isdigit(str[i]))
 			return (0);
 		i++;
 	}
@@ -124,7 +124,11 @@ void ScalarConverter::convert(std::string str)
 			std::cout << "char : Non displayable" << std::endl;
 		else
 			std::cout << "char: '" << static_cast<char>(f) << "'" << std::endl;
-		std::cout << "int: " << static_cast<int>(f) << std::endl;
+		if (f > INT_MAX || f < INT_MIN)
+			std::cout << "impossible" << std::endl;
+		else
+			std::cout << static_cast<int>(f) << std::endl;
+		std::cout << "int: ";
 		std::cout << "float: " << f << "f" << std::endl;
 		std::cout << "double: " << static_cast<double>(f) << ".0" << std::endl;
 	}
@@ -135,8 +139,15 @@ void ScalarConverter::convert(std::string str)
 			std::cout << "char : Non displayable" << std::endl;
 		else
 			std::cout << static_cast<char>(d) << std::endl;
-		std::cout << "int: " << static_cast<int>(d) << std::endl;
-		std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
+		std::cout << "int: ";
+		if (d > INT_MAX || d < INT_MIN)
+			std::cout << "impossible" << std::endl;
+		else
+			std::cout << static_cast<int>(d) << std::endl;
+		if (d > INT_MAX || d < INT_MAX)
+			std::cout << "impossible" << std::endl;
+		else
+			std::cout << static_cast<float>(d) << "f" << std::endl;
 		std::cout << "double: " << d << std::endl;
 	}
 }
