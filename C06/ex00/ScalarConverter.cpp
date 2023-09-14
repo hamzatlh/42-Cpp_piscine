@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:34:29 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/14 20:58:37 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/14 21:23:21 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,15 +180,15 @@ void ScalarConverter::convert(std::string str)
 		double d = std::strtod(str.c_str(), &end);
 		if (*end != '\0' && str.length() != 1)
 			throw ImpossibleException();
-		if (str == "nan" || str == "nanf")
-			{
-				std::cout << "char: impossible" << std::endl;
-				std::cout << "int: impossible" << std::endl;
-			}
-		else
-		if (d < 32 || d > 126)
+		// if (str == "nan" || str == "nanf")
+		// 	{
+		// 		std::cout << "char: impossible" << std::endl;
+		// 		std::cout << "int: impossible" << std::endl;
+		// 	}
+		// else
+		if (d < 32 || d > 126 || str == "nan" || str == "nanf")
 		{
-			if (d > INT_MAX || d < INT_MIN || *end != '\0')
+			if (d > INT_MAX || d < INT_MIN || *end != '\0' || str == "nan" || str == "nanf")
 				std::cout << "char : impossible" << std::endl;
 			else
 				std::cout << "char: Non displayable" << static_cast<char>(d) << std::endl;	
@@ -196,7 +196,7 @@ void ScalarConverter::convert(std::string str)
 		else
 			std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
 		std::cout << "int: ";
-		if (d > INT_MAX || d < INT_MIN)
+		if (d > INT_MAX || d < INT_MIN || str == "nan" || str == "nanf")
 			std::cout << "impossible" << std::endl;
 		else
 			std::cout << static_cast<int>(d) << std::endl;
