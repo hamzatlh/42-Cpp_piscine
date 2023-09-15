@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:34:29 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/14 21:23:21 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/15 16:40:45 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ const char* ScalarConverter::ImpossibleException::what() const throw()
 
 void ScalarConverter::convert(std::string str)
 {
+
 	std::cout << std::fixed << std::setprecision((str.length() - str.find('.') - 2));
 	char *end;
 	std::strtod(str.c_str(), &end);
@@ -180,12 +181,6 @@ void ScalarConverter::convert(std::string str)
 		double d = std::strtod(str.c_str(), &end);
 		if (*end != '\0' && str.length() != 1)
 			throw ImpossibleException();
-		// if (str == "nan" || str == "nanf")
-		// 	{
-		// 		std::cout << "char: impossible" << std::endl;
-		// 		std::cout << "int: impossible" << std::endl;
-		// 	}
-		// else
 		if (d < 32 || d > 126 || str == "nan" || str == "nanf")
 		{
 			if (d > INT_MAX || d < INT_MIN || *end != '\0' || str == "nan" || str == "nanf")
