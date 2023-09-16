@@ -6,13 +6,12 @@
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 20:33:22 by htalhaou          #+#    #+#              #
-#    Updated: 2023/09/15 19:56:09 by htalhaou         ###   ########.fr        #
+#    Updated: 2023/09/16 10:41:48 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 SRC = main.cpp \
-	  Base.cpp \
 
 NAME = Serialize
 
