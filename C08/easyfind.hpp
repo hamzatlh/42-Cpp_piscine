@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/22 09:45:57 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/24 11:53:26 by htalhaou         ###   ########.fr       */
+/*   Created: 2023/09/25 10:29:28 by htalhaou          #+#    #+#             */
+/*   Updated: 2023/09/25 20:48:31 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
-#include "Iter.hpp"
+#include <iostream>
+#include <algorithm>
+#include <vector>
 
-int main(void)
+template <typename T>
+typename T::iterator easyfind(T &container, int n)
 {
-	int arr[] = {1, 2, 3, 4, 5};
-	iter(arr, sizeof(arr) / sizeof(arr[0]), print);
-	std::string arr2[] = {"1", "2", "3", "4", "5"};
-	iter(arr2, sizeof(arr2) / sizeof(arr2[0]), print);
-	return (0);
+	typename T::iterator it = std::find(container.begin(), container.end(), n);
+	if (it == container.end())
+		throw std::exception();
+	return (it);
 }
 
-// int main()
-// {
-// 	int tab[] = { 0, 1, 2, 3, 4 };
-// 	Awesome tab2[5];
-// 	iter(tab, 5, print);
-// 	iter(tab2, 5, print);
-// 	return 0;
-// }
+#endif

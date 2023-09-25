@@ -5,28 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/22 09:45:57 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/24 11:53:26 by htalhaou         ###   ########.fr       */
+/*   Created: 2023/09/25 10:29:06 by htalhaou          #+#    #+#             */
+/*   Updated: 2023/09/25 20:48:57 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "easyfind.hpp"
 
-#include "Iter.hpp"
-
-int main(void)
+int main()
 {
-	int arr[] = {1, 2, 3, 4, 5};
-	iter(arr, sizeof(arr) / sizeof(arr[0]), print);
-	std::string arr2[] = {"1", "2", "3", "4", "5"};
-	iter(arr2, sizeof(arr2) / sizeof(arr2[0]), print);
-	return (0);
+	std::vector<int> v;
+	v.push_back(1);
+	v.push_back(2);
+	v.push_back(3);
+	try
+	{
+		std::cout << *easyfind(v, 2) << std::endl;
+		std::cout << *easyfind(v, 3) << std::endl;
+		std::cout << *easyfind(v, 4) << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Not found" << std::endl;
+	}
+	return 0;
 }
-
-// int main()
-// {
-// 	int tab[] = { 0, 1, 2, 3, 4 };
-// 	Awesome tab2[5];
-// 	iter(tab, 5, print);
-// 	iter(tab2, 5, print);
-// 	return 0;
-// }

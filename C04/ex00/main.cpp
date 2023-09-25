@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:19:40 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/08 16:56:10 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/16 12:19:52 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,25 @@
 
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-	delete meta;
-	delete i;
-	delete j;
-	return (0);
+	// const Animal* meta = new Animal();
+	// const Animal* j = new Dog();
+	// const Animal* i = new Cat();
+	// std::cout << j->getType() << " " << std::endl;
+	// std::cout << i->getType() << " " << std::endl;
+	// i->makeSound();
+	// j->makeSound();
+	// meta->makeSound();
+	// delete meta;
+	// delete i;
+	// delete j;
+	// return (0);
+	Animal* animal = new Animal();
+	Dog *dog = dynamic_cast<Dog*>(animal);
+	dog->makeSound();
+	// if (dog)
+	// 	std::cout << "dog" << std::endl;
+	// else
+	// 	std::cout << "not dog" << std::endl;
 }
 
 // int main()

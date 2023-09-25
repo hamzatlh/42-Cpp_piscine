@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 09:46:43 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/22 16:02:17 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/24 10:33:40 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,22 @@ T max(T a, T b)
 		return (a);
 	return (b);
 }
+
+// class Awesome{
+// 	public:
+// 		Awesome( int n ) : _n( n ) {}
+// 		Awesome() : _n( 0 ) {}
+// 		Awesome & operator=( Awesome const & rhs ) { this->_n = rhs._n; return *this; }
+// 		bool operator==( Awesome const & rhs ) const { return (this->_n == rhs._n); }
+// 		bool operator!=( Awesome const & rhs ) const{ return (this->_n != rhs._n); }
+// 		bool operator>( Awesome const & rhs ) const{ return (this->_n > rhs._n); }
+// 		bool operator<( Awesome const & rhs ) const{ return (this->_n < rhs._n); }
+// 		bool operator>=( Awesome const & rhs ) const{ return (this->_n >= rhs._n); }
+// 		bool operator<=( Awesome const & rhs ) const{ return (this->_n <= rhs._n); }
+// 		int getN() const { return this->_n; }
+// 	private:
+// 		int _n;
+// };
+// std::ostream & operator<<(std::ostream & o, Awesome const & rhs) { o << rhs.getN(); return o; }
 
 #endif
