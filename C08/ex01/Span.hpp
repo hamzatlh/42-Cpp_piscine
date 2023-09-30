@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 11:56:05 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/30 11:29:50 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/30 14:08:49 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Span
 		void addNumber(int n);
 		int shortestSpan();
 		int longestSpan();
+		void addNumberbiss(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 };
 
 #endif

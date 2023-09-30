@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 11:56:20 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/30 13:08:52 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/30 14:08:57 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,11 @@ int Span::longestSpan()
 	std::sort(tab.begin(), tab.end());
 	int max = tab[tab.size() - 1] - tab[0];
 	return (max);
+}
+
+void Span::addNumberbiss(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	if (this->tab.size() + std::distance(begin, end) > this->N)
+		throw std::exception();
+	this->tab.insert(this->tab.end(), begin, end);
 }
