@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 10:29:06 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/25 20:48:57 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/09/29 11:53:17 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ int main()
 	v.push_back(1);
 	v.push_back(2);
 	v.push_back(3);
+
 	try
 	{
+		// std::cout << *easyfind(v, 0) << std::endl;
+		std::cout << *easyfind(v, 1) << std::endl;
 		std::cout << *easyfind(v, 2) << std::endl;
 		std::cout << *easyfind(v, 3) << std::endl;
 		std::cout << *easyfind(v, 4) << std::endl;
