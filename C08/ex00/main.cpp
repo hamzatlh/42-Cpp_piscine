@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 10:29:06 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/29 11:53:17 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/01 13:28:45 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int main()
 		std::cout << *easyfind(v, 1) << std::endl;
 		std::cout << *easyfind(v, 2) << std::endl;
 		std::cout << *easyfind(v, 3) << std::endl;
-		std::cout << *easyfind(v, 4) << std::endl;
+		// std::cout << *easyfind(v, 4) << st d::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << "Not found" << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	return 0;
 }
