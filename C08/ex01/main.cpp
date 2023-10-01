@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 10:29:06 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/30 17:52:55 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/01 08:59:40 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int main()
         std::cout << "Error: " << e.what() << std::endl;
     }
 
-	int n = 2;
+	int n = 10000;
     Span sp2 = Span(n);
     try
     {
-        std::vector<int> tab2(4);
-        for (int i = 0; i < 4; i++)
+        std::vector<int> tab2(n);
+        for (int i = 0; i < n; i++)
             tab2[i] = i;
         sp2.addNumberbiss(tab2.begin(), tab2.end());
         std::cout << "Shortest span: " << sp2.shortestSpan() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 11:56:20 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/30 17:53:22 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/01 08:59:31 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,13 @@ int Span::longestSpan()
 void Span::addNumberbiss(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
 	std::cout << "size: " << this->tab.size() << std::endl;
-	if (this->tab.size() + std::distance(begin, end) > this->N)
+	if (std::distance(begin, end) > this->N)
 	{
-		std::cout << "size: " << this->tab.size() << std::endl;
+		std::cout << "distance: " << std::distance(begin, end) << std::endl;
 		throw std::exception();
 	}
-	std::cout << "size: " << this->tab.size() << std::endl;
-	// this->tab.insert(this->tab.end(), begin, end);
-	for (std::vector<int>::iterator it = begin; it != end; it++)
-		this->tab.push_back(*it);
+	std::cout << "distance: " << std::distance(begin, end) << std::endl;
+	this->tab.insert(this->tab.end(), begin, end);
+	// for (std::vector<int>::iterator it = begin; it != end; it++)
+	// 	this->tab.push_back(*it);
 }
