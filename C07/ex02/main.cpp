@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 11:11:28 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/24 13:42:53 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/02 10:43:15 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int main()
     }
     // int *p = 0;
     // int *po = NULL;
-    std::cout << (void *)0 << std::endl; 
+    std::cout << (void *)0 << std::endl;
     std::cout << NULL << std::endl; 
     return 0;
 }

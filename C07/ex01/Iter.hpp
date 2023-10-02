@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 09:46:43 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/24 11:49:58 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/02 10:13:08 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 #include <iostream>
 
-template <typename T>
-void iter(T *arr, int len, void (*f)(T const&))
+template <typename T, typename F>
+void iter(T *arr, int len, F *f)
 {
 	int i = 0;
 	while (i < len)
