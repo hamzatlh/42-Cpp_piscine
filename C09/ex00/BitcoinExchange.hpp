@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 10:46:48 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/10/03 19:06:43 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/04 10:52:33 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 # include <iomanip>
 # include <fstream>
 # include <vector>
-# include <regex>
+# include <map>
+# include <algorithm>
 
 int parse_data(std::string filename);
 

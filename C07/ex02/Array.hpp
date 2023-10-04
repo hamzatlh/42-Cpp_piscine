@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 11:11:50 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/09/24 12:03:53 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:03:07 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Array
 	public:
 		Array<T>(void)
 		{
-			this->arr = new T[0];
+			this->arr = new T;
 			this->len = 0;
 		}
 		Array<T>(unsigned int n)
@@ -34,7 +34,7 @@ class Array
 		}
 		Array<T>(Array<T> const& old)
 		{
-			this->arr = new T[old.len];
+			this->arr = new T;
 			*this = old;
 		}
 		Array<T>& operator=(Array<T> const& old)
