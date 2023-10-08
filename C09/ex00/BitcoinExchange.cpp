@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 10:46:55 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/10/08 15:26:45 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/08 17:17:29 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int parse_data(std::string filename)
         std::cout << "Error: one line" << std::endl;
         return (1);
     }
-    std::cout << "map[2012-11-27]: " << map["2012-11-27"] << std::endl;
+    // std::cout << "map[2012-11-27]: " << map["2011-01-03"] << std::endl;
     file.close();
     return 0;
 }
@@ -152,7 +152,7 @@ int parse_input(std::string filename)
         if (line.empty())
         {
             std::cout << "Error: empty line" << std::endl;
-            return 1;
+            continue;
         }
         if (isFirstLine)
         {
@@ -160,7 +160,7 @@ int parse_input(std::string filename)
             if (line != "date | value")
             {
                 std::cout << "Error: first line is not correct" << std::endl;
-                return 1;
+                continue;
             }
             continue;
         }
@@ -169,8 +169,8 @@ int parse_input(std::string filename)
             int count = std::count(line.begin(), line.end(), '|');
             if (count != 1)
             {
-                std::cout << "Error: too many pipe" << std::endl;
-                return 1;
+                std::cout << "Error: bad input => " << line << std::endl;
+                continue;
             }
             std::string date = line.substr(0, line.find("|"));
             std::string rate_str = line.substr(line.find("|") + 1);
@@ -178,32 +178,37 @@ int parse_input(std::string filename)
             {
                 std::cout << "date: " << date << std::endl;
                 std::cout << "Error: wrong date format" << std::endl;
-                return 1;
+                continue;
             }
             if (date[5] > '1' || (date[5] == '1' && date[6] > '2') || date[8] > '3' || (date[8] == '3' && date[9] > '1') \
                 || (date[5] == '0' && date[6] == '0' )|| (date[8] == '0' && date[9] == '0'))
             {
                 std::cout << "Error: wrong date format" << std::endl;
-                return 1;
+                continue;
             }
             if (date[5] == '0' && date[6] == '2')
             {
                 if (date[8] > '2' || (date[8] == '2' && date[9] > '9'))
                 {
                     std::cout << "Error: wrong date format" << std::endl;
-                    return 1;
+                    continue;
                 }
             }
             char* end;
             double rate = std::strtod(rate_str.c_str(), &end);
             if(rate < 0 || *end != '\0')
             {
-                std::cout << "Error: wrong rate format" << std::endl;
-                return 1;
+                std::cout << "Error: not a positive number." << std::endl;
+                continue;
+            }
+            if (rate > INT_MAX)
+            {
+                std::cout << "Error: too large number." << std::endl;
+                continue;
             }
         }
+        std::cout << line << std::endl;
     } 
-    
     file.close();
     return 0;
 }
