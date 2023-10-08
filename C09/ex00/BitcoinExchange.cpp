@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 10:46:55 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/10/08 17:17:29 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/08 17:42:59 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ int checkLine(std::string line)
     return (0);
 }
 
-int parse_data(std::string filename)
+int parse_data(std::map<std::string, double> *map)
 {
-    std::ifstream file(filename.c_str());
-    std::map<std::string, double> map;
+    std::ifstream file("data.csv");
+    // std::map<std::string, double> map;
     if (!file.is_open())
     {
         std::cout << "Error: could not open file" << std::endl;
@@ -79,15 +79,15 @@ int parse_data(std::string filename)
             std::string rate_str = line.substr(line.find(",") + 1);
             char* end;
             double rate = std::strtod(rate_str.c_str(), &end);
-            map[date] = rate;
+            (*map)[date] = rate;
         }
     }
-    if (map.empty())
+    if ((*map).empty())
     {
         std::cout << "Error: empty file" << std::endl;
         return (1);
     }
-    if (map.size() == 1)
+    if ((*map).size() == 1)
     {
         std::cout << "Error: one line" << std::endl;
         return (1);
@@ -139,7 +139,8 @@ int check_input(std::string line)
 int parse_input(std::string filename)
 {
     std::ifstream file(filename.c_str());
-    parse_data("data.csv");
+    std::map<std::string, double> map;
+    parse_data(&map);
     if (!file.is_open())
     {
         std::cout << "Error: could not open file" << std::endl;
@@ -206,9 +207,16 @@ int parse_input(std::string filename)
                 std::cout << "Error: too large number." << std::endl;
                 continue;
             }
+            map[date] = rate;
         }
         std::cout << line << std::endl;
     } 
     file.close();
+    // for (std::map<std::string, double>::const_iterator it = map.begin(); it != map.end(); ++it) {
+    // const std::string& key = it->first;
+    // const double& val = it->second;
+    // std::cout << key << " => " << val << std::endl;
+// }
+
     return 0;
 }
