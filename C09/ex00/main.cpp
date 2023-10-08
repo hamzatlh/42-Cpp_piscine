@@ -6,19 +6,25 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 10:46:29 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/10/03 16:34:18 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/05 19:44:11 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-int main()
+int main(int argc, char **argv)
 {
-    std::string filename = "data.csv";
-    int result = parse_data(filename);
-    if (result == 0)
-        std::cout << "Data parsed successfully!" << std::endl;
+    if (argc != 2)
+    {
+        std::cout << "file not found" << std::endl;
+        return (1);
+    }
+    if (parse_input(argv[1]))
+    {
+        // std::cout << "Error: parse input" << std::endl;
+        return (1);
+    }
     else
-        std::cout << "Error parsing data." << std::endl;
-    return 0;
+        std::cout << "input file parsed successfuly" << std::endl;
+    return (0);
 }
