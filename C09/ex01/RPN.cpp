@@ -6,14 +6,14 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:04:55 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/10/09 17:36:28 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/09 18:37:47 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
 
-int		operator(char c)
+int		is_operator(char c)
 {
 	if (c == '+' || c == '-' || c == '*' || c == '/')
 		return (1);
@@ -36,7 +36,7 @@ int		is_space(char c)
 
 int		is_valid(char c)
 {
-	if (operator(c) || is_digit(c) || is_space(c))
+	if (is_operator(c) || is_digit(c) || is_space(c))
 		return (1);
 	return (0);
 }
@@ -65,7 +65,7 @@ int		is_error(std::string str)
 	return (0);
 }
 
-int		apply_op(int a, int b, char op)
+int		app_operation(int a, int b, char op)
 {
 	if (op == '+')
 		return (a + b);
@@ -75,8 +75,6 @@ int		apply_op(int a, int b, char op)
 		return (a * b);
 	if (op == '/')
 		return (a / b);
-	if (op == '%')
-		return (a % b);
 	return (0);
 }
 
@@ -96,11 +94,11 @@ int		rpn(std::string str)
 	{
 		if (is_digit(str[i]))
 		{
-			stack.push(atoi(&str[i]));
+			stack.push(str[i] - '0');
 			while (is_digit(str[i]))
 				i++;
 		}
-		if (operator(str[i]))
+		if (is_operator(str[i]))
 		{
 			if (is_empty(stack))
 			{
@@ -116,7 +114,7 @@ int		rpn(std::string str)
 			}
 			a = stack.top();
 			stack.pop();
-			res = apply_op(a, b, str[i]);
+			res = app_operation(a, b, str[i]);
 			stack.push(res);
 		}
 		i++;
