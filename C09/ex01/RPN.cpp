@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:04:55 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/10/09 18:37:47 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/09 20:09:23 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,13 @@ int		app_operation(int a, int b, char op)
 		return (a - b);
 	if (op == '*')
 		return (a * b);
-	if (op == '/')
+	if (op == '/' && b != 0)
 		return (a / b);
+	if (op == '/' && b == 0)
+	{
+		std::cout << "Error" << std::endl;
+		exit (1);
+	}
 	return (0);
 }
 
