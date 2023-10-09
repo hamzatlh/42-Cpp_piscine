@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 10:46:55 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/10/08 17:42:59 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/09 12:48:57 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int checkLine(std::string line)
 int parse_data(std::map<std::string, double> *map)
 {
     std::ifstream file("data.csv");
-    // std::map<std::string, double> map;
     if (!file.is_open())
     {
         std::cout << "Error: could not open file" << std::endl;
@@ -92,7 +91,6 @@ int parse_data(std::map<std::string, double> *map)
         std::cout << "Error: one line" << std::endl;
         return (1);
     }
-    // std::cout << "map[2012-11-27]: " << map["2011-01-03"] << std::endl;
     file.close();
     return 0;
 }
@@ -174,10 +172,10 @@ int parse_input(std::string filename)
                 continue;
             }
             std::string date = line.substr(0, line.find("|"));
+            date.erase(std::remove(date.begin(), date.end(), ' '), date.end());
             std::string rate_str = line.substr(line.find("|") + 1);
-            if (date.size() != 11 || date[4] != '-' || date[7] != '-')
+            if (date.size() != 10 || date[4] != '-' || date[7] != '-')
             {
-                std::cout << "date: " << date << std::endl;
                 std::cout << "Error: wrong date format" << std::endl;
                 continue;
             }
@@ -207,16 +205,20 @@ int parse_input(std::string filename)
                 std::cout << "Error: too large number." << std::endl;
                 continue;
             }
-            map[date] = rate;
+            std::map<std::string, double>::iterator it = map.lower_bound(date);
+            if (it == map.end())
+            {
+                std::cout << "Error: date not found" << std::endl;
+                continue;
+            }
+            else
+            {
+                if(it->first != date)
+                    it--;
+                std::cout << date << " => " << rate << " = " << it->second * rate <<std::endl;
+            }
         }
-        std::cout << line << std::endl;
     } 
     file.close();
-    // for (std::map<std::string, double>::const_iterator it = map.begin(); it != map.end(); ++it) {
-    // const std::string& key = it->first;
-    // const double& val = it->second;
-    // std::cout << key << " => " << val << std::endl;
-// }
-
     return 0;
 }
