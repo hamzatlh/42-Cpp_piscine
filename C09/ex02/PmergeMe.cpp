@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:20:56 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/10/14 16:14:00 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/14 20:01:50 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,30 +29,38 @@ void split_deque_into_pairs(std::deque<int>& d, size_t size)
     {
         std::deque<int> first_deque;
         std::deque<int> second_deque;
-        for (size_t j = 0; j < size; j++)
+        if (d.size() - i < size * 2)
         {
-			if (d[i + j + size] < d[i + j])
-			{
-				first_deque.push_back(d[i + j + size]);
-				second_deque.push_back(d[i + j]);
-			}
-			else
-			{
-				first_deque.push_back(d[i + j]);
-				second_deque.push_back(d[i + j + size]);
-			}			
+            for (size_t j = i; j < d.size(); j++)
+            {
+                if (j < i + size)
+                    first_deque.push_back(d[j]);
+                else
+                    second_deque.push_back(d[j]);
+            }
+        }
+        else
+        {
+            for (size_t j = i; j < i + size; j++)
+                first_deque.push_back(d[j]);
+            for (size_t j = i + size; j < i + size * 2; j++)
+                second_deque.push_back(d[j]);
+            if (first_deque.back() > second_deque.back())
+                std::swap(first_deque, second_deque);
         }
         pairs.push_back(std::make_pair(first_deque, second_deque));
     }
     d.clear();
     for (size_t i = 0; i < pairs.size(); i++)
     {
-        const std::deque<int>& first_subdeque = pairs[i].first;
-        const std::deque<int>& second_subdeque = pairs[i].second;
-
+        std::deque<int>& first_subdeque = pairs[i].first;
+        std::deque<int>& second_subdeque = pairs[i].second;
         for (size_t j = 0; j < size; j++)
         {
             d.push_back(first_subdeque[j]);
+        }
+        for (size_t j = 0; j < size; j++)
+        {
             d.push_back(second_subdeque[j]);
         }
     }
@@ -67,5 +75,5 @@ void split_deque_into_pairs(std::deque<int>& d, size_t size)
 		std::cout << std::endl;
 	}
     size *= 2;
-    split_deque_into_pairs(d, size );
+    split_deque_into_pairs(d, size);
 }
