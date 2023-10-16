@@ -88,10 +88,6 @@ void split_deque_into_pairs(std::deque<int>& d, size_t size)
                 else
                     second_deque.push_back(d[j]);
             }
-            // if (first_deque.back() > second_deque.back())
-            //     {
-            //         main_chain.insert(main_chain.end(), first_deque.begin(), first_deque.end());
-            //     }
             pairs.push_back(std::make_pair(first_deque, second_deque));
         }
         else
@@ -104,9 +100,15 @@ void split_deque_into_pairs(std::deque<int>& d, size_t size)
                 second_deque.push_back(d[j]);
             pairs.push_back(std::make_pair(first_deque, second_deque));
         }
+        main_chain.insert(main_chain.end(), pairs.back().second.begin(), pairs.back().second.end());
+        pend_chain.insert(pend_chain.end(), pairs.back().first.begin(), pairs.back().first.end());
     }
     std::cout << "==> main_chain" << std::endl;
     for (std::deque<int>::iterator it = main_chain.begin(); it != main_chain.end(); ++it)
+        std::cout << *it << " ";
+    std::cout << std::endl;
+    std::cout << "==> pend_chain" << std::endl;
+    for (std::deque<int>::iterator it = pend_chain.begin(); it != pend_chain.end(); ++it)
         std::cout << *it << " ";
     std::cout << std::endl;
     std::cout << "==> pairs in " << size << std::endl;
