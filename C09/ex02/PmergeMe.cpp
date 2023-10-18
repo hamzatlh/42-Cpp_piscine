@@ -1,17 +1,21 @@
 
 #include "PmergeMe.hpp"
 
+bool Compare(const std::deque<int>& d1, const std::deque<int>& d2)
+{
+    return (d1.back() < d2.back());
+}
+
 void split_deque_into_pairs(std::deque<int>& d, size_t size)
 {
     if (d.size() < size * 2)
         return;
-
     std::deque<std::pair<std::deque<int>, std::deque<int> > > pairs;
     std::deque<int> tmp;
     if (d.size() % (size * 2) != 0)
     {
         for (size_t i = d.size() - (d.size() % (size * 2)); i < d.size(); i++)
-            tmp.push_front(d[i]);
+            tmp.push_back(d[i]);
         d.erase(d.end() - (d.size() % (size * 2)), d.end());
         std::cout << std::endl;
         std::cout << "==> tmp" << std::endl;
@@ -23,7 +27,6 @@ void split_deque_into_pairs(std::deque<int>& d, size_t size)
     {
         std::deque<int> first_deque;
         std::deque<int> second_deque;
-
         if (d.size() - i < size * 2)
         {
             for (size_t j = i; j < d.size(); j++)
@@ -65,16 +68,12 @@ void split_deque_into_pairs(std::deque<int>& d, size_t size)
             std::cout << *it2 << " ";
         std::cout << std::endl;
     }
-    // if (!tmp.empty())
-    // {
-    //     d.insert(d.end(), tmp.begin(), tmp.end());
-    // }
     split_deque_into_pairs(d, size * 2);
     pairs.clear();
     std::cout << std::endl;
     std::cout << "size = " << size << std::endl;
-    std::deque<int> main_chain;
-    std::deque<int> pend_chain;
+    std::deque<std::deque<int> > main_chain;
+    std::deque<std::deque<int> > pend_chain;
     for (size_t i = 0; i < d.size(); i += size * 2)
     {
         if (size > d.size() - i)
@@ -100,50 +99,43 @@ void split_deque_into_pairs(std::deque<int>& d, size_t size)
                 second_deque.push_back(d[j]);
             pairs.push_back(std::make_pair(first_deque, second_deque));
         }
-        main_chain.insert(main_chain.end(), pairs.back().second.begin(), pairs.back().second.end());
-        pend_chain.insert(pend_chain.end(), pairs.back().first.begin(), pairs.back().first.end());
-        //use lower band to inser pend chain into main chain
-        }
-        for (std::deque<int>::iterator it = pend_chain.begin(); it != pend_chain.end(); ++it)
-        {
-            for (std::deque<int>::iterator it2 = main_chain.begin(); it2 != main_chain.end(); ++it2)
-            {
-                if (*it < *it2)
-                {
-                    main_chain.insert(it2, *it);
-                    break;
-                }
-            }
-        }
-        // std::cout << "==> main_chain" << std::endl;
-        // for (std::deque<int>::iterator it = main_chain.begin(); it != main_chain.end(); ++it)
-        //     std::cout << *it << " ";
-        // std::cout << std::endl;
-        // std::cout << "==> pend_chain" << std::endl;
-        // for (std::deque<int>::iterator it = pend_chain.begin(); it != pend_chain.end(); ++it)
-        //     std::cout << *it << " ";
-        // std::cout << std::endl;
-
-        // use lower band to insert pend_chain into main_chain
-        // for (std::deque<int>::iterator it = pend_chain.begin(); it != pend_chain.end(); ++it)
-        // {
-        //     std::deque<int>::iterator ub = std::upper_bound(main_chain.begin(), main_chain.end(), *it);
-        //     main_chain.insert(ub, *it);
-        // }
-        
-        std::cout << "==> main_chain after insertion" << std::endl;
-        for (std::deque<int>::iterator it = main_chain.begin(); it != main_chain.end(); ++it)
-            std::cout << *it << " ";
-        std::cout << std::endl;
-
-        // std::cout << "==> pairs in " << size << std::endl;
-        // for (std::deque<std::pair<std::deque<int>, std::deque<int> > >::iterator it = pairs.begin(); it != pairs.end(); ++it)
-        // {
-        //     for (std::deque<int>::iterator it2 = it->first.begin(); it2 != it->first.end(); ++it2)
-        //         std::cout << *it2 << " ";
-        //     std::cout << " , ";
-        //     for (std::deque<int>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
-        //         std::cout << *it2 << " ";
-        //     std::cout << std::endl;
-        // }
+        main_chain.push_back(pairs.back().second);
+        pend_chain.push_back(pairs.back().first);
     }
+    if(!tmp.empty())
+        pend_chain.push_back(tmp);
+    for (std::deque<std::deque<int> >::iterator p_it = pend_chain.begin(); p_it != pend_chain.end(); ++p_it)
+    {
+        std::deque<std::deque<int> >::iterator it = std::lower_bound(main_chain.begin(), main_chain.end(), *p_it, Compare);
+        main_chain.insert(it, *p_it);
+    }
+    d.clear();
+    for (std::deque<std::deque<int> >::iterator it = main_chain.begin(); it != main_chain.end(); ++it)
+        d.insert(d.end(), it->begin(), it->end());
+    std::cout << "==> main_chain" << std::endl;
+    for (std::deque<std::deque<int> >::iterator it = main_chain.begin(); it != main_chain.end(); ++it)
+    {
+        for (std::deque<int>::iterator it2 = it->begin(); it2 != it->end(); ++it2)
+            std::cout << *it2 << " ";
+        std::cout << " , ";
+    }
+    std::cout << std::endl;
+    std::cout << "===> pend_chain" << std::endl;
+    for (std::deque<std::deque<int> >::iterator it = pend_chain.begin(); it != pend_chain.end(); ++it)
+    {
+        for (std::deque<int>::iterator it2 = it->begin(); it2 != it->end(); ++it2)
+            std::cout << *it2 << " ";
+        std::cout << " , ";
+    }
+    std::cout << std::endl;
+    std::cout << "==> pairs in " << size << std::endl;
+    for (std::deque<std::pair<std::deque<int>, std::deque<int> > >::iterator it = pairs.begin(); it != pairs.end(); ++it)
+    {
+        for (std::deque<int>::iterator it2 = it->first.begin(); it2 != it->first.end(); ++it2)
+            std::cout << *it2 << " ";
+        std::cout << " , ";
+        for (std::deque<int>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
+            std::cout << *it2 << " ";
+        std::cout << std::endl;
+    }
+}
