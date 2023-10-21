@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 12:17:09 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/10/20 18:28:12 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/21 17:47:47 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,13 @@ bool Compare(const std::deque<int>& d1, const std::deque<int>& d2)
     comp++;
     return (d1.back() < d2.back());
 }
-std::vector<int> Jacobsthal(int n)
+int jacobsthal(int n)
 {
-    std::vector<int> arr(n);
     if (n == 0)
-        return (arr);
+        return (0);
     if (n == 1)
-    {
-        arr[0] = 1;
-        return (arr);
-    }
-    arr[0] = 0;
-    arr[1] = 1;
-    for (int i = 2; i < n; i++)
-    {
-        arr[i] = arr[i - 1] + 2 * arr[i - 2];
-    }
-    return (arr);
+        return (1);
+    return (jacobsthal(n - 1) + 2 * jacobsthal(n - 2));
 }
 void split_deque_into_pairs(std::deque<int>& d, size_t size)
 {
@@ -88,10 +78,28 @@ void split_deque_into_pairs(std::deque<int>& d, size_t size)
         for (size_t j = 0; j < size; j++)
             d.push_back(second_subdeque[j]);
     }
+    std::cout << std::endl;
+    std::cout << "==> pairs : ";
+    for (std::deque<std::pair<std::deque<int>, std::deque<int> > >::iterator it = pairs.begin(); it != pairs.end(); ++it)
+    {
+        std::cout << "[";
+        for (std::deque<int>::iterator it2 = it->first.begin(); it2 != it->first.end(); ++it2)
+            std::cout << *it2 << ", ";
+        for (std::deque<int>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
+            std::cout << *it2 << " ";
+        std::cout << "]";
+    }
+    std::cout << std::endl;
+
+    std::cout << "==> tmp : ";
+    for (std::deque<int>::iterator it = tmp.begin(); it != tmp.end(); ++it)
+        std::cout << *it << " ";
+    std::cout << std::endl;
     split_deque_into_pairs(d, size * 2);
     pairs.clear();
     std::deque<std::deque<int> > main_chain;
     std::deque<std::deque<int> > pend_chain;
+    std::deque<int> jacobSequence;
     for (size_t i = 0; i < d.size(); i += size * 2)
     {
         if (size > d.size() - i)
@@ -130,6 +138,49 @@ void split_deque_into_pairs(std::deque<int>& d, size_t size)
     d.clear();
     for (std::deque<std::deque<int> >::iterator it = main_chain.begin(); it != main_chain.end(); ++it)
         d.insert(d.end(), it->begin(), it->end());
+
+    std::cout << "==> d : ";
+    for (std::deque<int>::iterator it = d.begin(); it != d.end(); it++)
+        std::cout << *it << " ";
+    std::cout << std::endl;
+
+    std::cout << "==> main_chain : ";
+    for (std::deque<std::deque<int> >::iterator it = main_chain.begin(); it != main_chain.end(); ++it)
+    {
+        std::cout << "[";
+        for (std::deque<int>::iterator it2 = it->begin(); it2 != it->end(); ++it2)
+            std::cout << *it2 << " ";
+        std::cout << "]";
+        std::cout << std::endl;
+    }
+    std::cout << std::endl;
+    std::cout << "==> pend_chain : ";
+    for (std::deque<std::deque<int> >::iterator it = pend_chain.begin(); it != pend_chain.end(); ++it)
+    {
+        std::cout << "[";
+        for (std::deque<int>::iterator it2 = it->begin(); it2 != it->end(); ++it2)
+            std::cout << *it2 << " ";
+        std::cout << "]";
+    }
+    std::cout << std::endl;
+
+    std::cout << "==> pairs : ";
+    for (std::deque<std::pair<std::deque<int>, std::deque<int> > >::iterator it = pairs.begin(); it != pairs.end(); ++it)
+    {
+        std::cout << "[";
+        for (std::deque<int>::iterator it2 = it->first.begin(); it2 != it->first.end(); ++it2)
+            std::cout << *it2 << " ";
+        std::cout << "[";
+        for (std::deque<int>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
+            std::cout << *it2 << " ";
+        std::cout << "]";
+    }
+    std::cout << std::endl;
+
+    std::cout << "==> tmp : ";
+    for (std::deque<int>::iterator it = tmp.begin(); it != tmp.end(); ++it)
+        std::cout << *it << " ";
+    std::cout << std::endl;
 }
 
 
@@ -148,7 +199,7 @@ int main (int ac, char **av)
 	std::cout << "before : ";
 	for (std::deque<int>::iterator it = d.begin(); it != d.end(); it++)
 		std::cout << *it << " ";
-	// std::cout << std::endl;
+	std::cout << std::endl;
 	split_deque_into_pairs(d, 1);
     std::cout << "after : ";
     for (std::deque<int>::iterator it = d.begin(); it != d.end(); it++)
