@@ -351,3 +351,93 @@ if (!pend_chain.empty())
     //     begin = tmp + 1;
     // }
     // d.clear();
+
+
+
+    // if(!tmp.empty())
+    //     pend_chain.push_back(tmp);
+    // if (!pend_chain.empty())
+    //     main_chain.push_front(pend_chain.front());
+    // for(size_t i = 1; i < pend_chain.size(); i++)
+    // {
+    //     jacobSequence.push_back(jacobsthal(i));
+    //     std::cout << "jacobSequence : ";
+    //     for (std::deque<int>::iterator it = jacobSequence.begin(); it != jacobSequence.end(); ++it)
+    //         std::cout << *it << " ";
+    //     std::cout << std::endl;
+    // }
+    // int start = 2;
+    // for(size_t i = 0; i < jacobSequence.size(); i++)
+    // {
+    //     int j = jacobSequence.at(i);
+    //     int tmp = j;
+    //     if (j >= (int)pend_chain.size())
+    //         j = pend_chain.size() - 1;
+    //     while(j >= start)
+    //     {
+    //         std::cout << "j : " << j << std::endl;
+    //         std::deque<std::deque<int> >::iterator it;
+    //         // main_chain.insert(main_chain.begin() + j, pend_chain.at(j));
+    //         j--;
+    //     }
+    //     start = tmp + 1;
+        
+    // }
+    // if(!tmp.empty())
+    //     pend_chain.push_back(tmp);
+    // for (std::deque<std::deque<int> >::iterator p_it = pend_chain.begin(); p_it != pend_chain.end(); ++p_it)
+    // {
+    //     std::deque<std::deque<int> >::iterator it = std::lower_bound(main_chain.begin(), main_chain.end(), *p_it, Compare);
+    //     main_chain.insert(it, *p_it);
+    // }
+    // d.clear();
+    // for (std::deque<std::deque<int> >::iterator it = main_chain.begin(); it != main_chain.end(); ++it)
+    //     d.insert(d.end(), it->begin(), it->end());
+    // std::cout << "==> d : ";
+    // for (std::deque<int>::iterator it = d.begin(); it != d.end(); ++it)
+    //     std::cout << *it << " ";
+    // std::cout << std::endl;
+    // std::cout << "===> pairs : ";
+    // std::cout << std::endl;
+    // for (std::deque<std::pair<std::deque<int>, std::deque<int> > >::iterator it = pairs.begin(); it != pairs.end(); ++it)
+    // {
+    //     std::cout << "[";
+    //     for (std::deque<int>::iterator it2 = it->first.begin(); it2 != it->first.end(); ++it2)
+    //         std::cout << *it2 << ", ";
+    //     for (std::deque<int>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
+    //         std::cout << *it2 << ", ";
+    //     std::cout << "]";
+    //     std::cout << std::endl;
+    // }
+    // std::cout << std::endl;
+    // std::cout << "===> main_chain : ";
+    // for (std::deque<std::deque<int> >::iterator it = main_chain.begin(); it != main_chain.end(); ++it)
+    // {
+    //     std::cout << "[";
+    //     for (std::deque<int>::iterator it2 = it->begin(); it2 != it->end(); ++it2)
+    //         std::cout << *it2 << ", ";
+    //     std::cout << "]";
+    // }
+    // std::cout << std::endl;
+    // std::cout << "===> pend_chain : ";
+    // for (std::deque<std::deque<int> >::iterator it = pend_chain.begin(); it != pend_chain.end(); ++it)
+    // {
+    //     std::cout << "[";
+    //     for (std::deque<int>::iterator it2 = it->begin(); it2 != it->end(); ++it2)
+    //         std::cout << *it2 << ", ";
+    //     std::cout << "]";
+    // }
+    // std::cout << std::endl;
+
+
+        // if(!tmp.empty())
+    //     pend_chain.push_back(tmp);
+    
+    // for (std::deque<std::deque<int> >::iterator p_it = pend_chain.begin(); p_it != pend_chain.end(); ++p_it)
+    // {
+    //     std::deque<std::deque<int> >::iterator it = std::lower_bound(main_chain.begin(), main_chain.end(), *p_it, Compare);
+    //     main_chain.insert(it, *p_it);
+    // }
+    // d.clear();
+    // for (std::deque<std::deque<int> >::iterator it = main_chain.begin(); it != main_chain.end(); ++it)
+    //     d.insert(d.end(), it->begin(), it->end());

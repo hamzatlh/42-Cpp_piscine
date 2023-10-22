@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 12:17:09 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/10/21 17:47:47 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/22 18:28:49 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int comp = 0;
 bool Compare(const std::deque<int>& d1, const std::deque<int>& d2)
 {
     comp++;
-    return (d1.back() < d2.back());
+    return (d1.back() <= d2.back());
 }
 int jacobsthal(int n)
 {
@@ -99,7 +99,7 @@ void split_deque_into_pairs(std::deque<int>& d, size_t size)
     pairs.clear();
     std::deque<std::deque<int> > main_chain;
     std::deque<std::deque<int> > pend_chain;
-    std::deque<int> jacobSequence;
+    std::deque<int> jacob_arr;
     for (size_t i = 0; i < d.size(); i += size * 2)
     {
         if (size > d.size() - i)
@@ -128,58 +128,89 @@ void split_deque_into_pairs(std::deque<int>& d, size_t size)
         main_chain.push_back(pairs.back().second);
         pend_chain.push_back(pairs.back().first);
     }
-    if(!tmp.empty())
-        pend_chain.push_back(tmp);
-    for (std::deque<std::deque<int> >::iterator p_it = pend_chain.begin(); p_it != pend_chain.end(); ++p_it)
+    if (!pend_chain.empty())
+        main_chain.push_front(pend_chain.front());
+    for(size_t i = 1; i < pend_chain.size(); i++)
     {
-        std::deque<std::deque<int> >::iterator it = std::lower_bound(main_chain.begin(), main_chain.end(), *p_it, Compare);
-        main_chain.insert(it, *p_it);
+        jacob_arr.push_back(jacobsthal(i));
+        std::cout << "jacob_arr : ";
+        for (std::deque<int>::iterator it = jacob_arr.begin(); it != jacob_arr.end(); ++it)
+            std::cout << *it << " ";
+        std::cout << std::endl;
+    }
+    if(pend_chain.size() > 1)
+    {
+        std::deque<std::deque<int> >::iterator it = std::lower_bound(main_chain.begin(), main_chain.end(), pend_chain[1], Compare);
+        std::cout << "pend_chain[1] : ";
+        for (std::deque<int>::iterator it2 = pend_chain[1].begin(); it2 != pend_chain[1].end(); ++it2)
+            std::cout << *it2 << " ";
+        std::cout << std::endl;
+        main_chain.insert(it, pend_chain[1]);
+    }
+    int start = 2;
+    for(size_t i = 0; i < jacob_arr.size(); i++)
+    {
+        int j = jacob_arr.at(i);
+        int tmp = j;
+        if (j >= (int)pend_chain.size())
+            j = pend_chain.size() - 1;
+        while (j >= start)
+        {
+            std::deque<std::deque<int> >::iterator it = std::lower_bound(main_chain.begin(), main_chain.end(), pend_chain[j], Compare);
+            main_chain.insert(it, pend_chain[j]);
+            j--;
+        }
+        start = tmp + 1;
+    }
+    if (!tmp.empty())
+    {
+        std::deque<std::deque<int> >::iterator it = std::lower_bound(main_chain.begin(), main_chain.end(), tmp, Compare);
+        main_chain.insert(it, tmp);
     }
     d.clear();
     for (std::deque<std::deque<int> >::iterator it = main_chain.begin(); it != main_chain.end(); ++it)
         d.insert(d.end(), it->begin(), it->end());
-
+    // for (std::deque<std::deque<int> >::iterator p_it = pend_chain.begin(); p_it != pend_chain.end(); ++p_it)
+    // {
+    //     std::deque<std::deque<int> >::iterator it = std::lower_bound(main_chain.begin(), main_chain.end(), *p_it, Compare);
+    //     main_chain.insert(it, *p_it);
+    // }
+    
+    std::cout << std::endl;
     std::cout << "==> d : ";
-    for (std::deque<int>::iterator it = d.begin(); it != d.end(); it++)
+    for (std::deque<int>::iterator it = d.begin(); it != d.end(); ++it)
         std::cout << *it << " ";
     std::cout << std::endl;
-
-    std::cout << "==> main_chain : ";
-    for (std::deque<std::deque<int> >::iterator it = main_chain.begin(); it != main_chain.end(); ++it)
-    {
-        std::cout << "[";
-        for (std::deque<int>::iterator it2 = it->begin(); it2 != it->end(); ++it2)
-            std::cout << *it2 << " ";
-        std::cout << "]";
-        std::cout << std::endl;
-    }
+    std::cout << "===> pairs : ";
     std::cout << std::endl;
-    std::cout << "==> pend_chain : ";
-    for (std::deque<std::deque<int> >::iterator it = pend_chain.begin(); it != pend_chain.end(); ++it)
-    {
-        std::cout << "[";
-        for (std::deque<int>::iterator it2 = it->begin(); it2 != it->end(); ++it2)
-            std::cout << *it2 << " ";
-        std::cout << "]";
-    }
-    std::cout << std::endl;
-
-    std::cout << "==> pairs : ";
     for (std::deque<std::pair<std::deque<int>, std::deque<int> > >::iterator it = pairs.begin(); it != pairs.end(); ++it)
     {
         std::cout << "[";
         for (std::deque<int>::iterator it2 = it->first.begin(); it2 != it->first.end(); ++it2)
-            std::cout << *it2 << " ";
-        std::cout << "[";
+            std::cout << *it2 << ", ";
         for (std::deque<int>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
-            std::cout << *it2 << " ";
+            std::cout << *it2 << ", ";
+        std::cout << "]";
+        std::cout << std::endl;
+    }
+    std::cout << std::endl;
+    std::cout << "===> main_chain : ";
+    for (std::deque<std::deque<int> >::iterator it = main_chain.begin(); it != main_chain.end(); ++it)
+    {
+        std::cout << "[";
+        for (std::deque<int>::iterator it2 = it->begin(); it2 != it->end(); ++it2)
+            std::cout << *it2 << ", ";
         std::cout << "]";
     }
     std::cout << std::endl;
-
-    std::cout << "==> tmp : ";
-    for (std::deque<int>::iterator it = tmp.begin(); it != tmp.end(); ++it)
-        std::cout << *it << " ";
+    std::cout << "===> pend_chain : ";
+    for (std::deque<std::deque<int> >::iterator it = pend_chain.begin(); it != pend_chain.end(); ++it)
+    {
+        std::cout << "[";
+        for (std::deque<int>::iterator it2 = it->begin(); it2 != it->end(); ++it2)
+            std::cout << *it2 << ", ";
+        std::cout << "]";
+    }
     std::cout << std::endl;
 }
 
