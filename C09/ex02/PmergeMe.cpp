@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 12:17:09 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/10/23 12:32:27 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:28:55 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void split_deque_into_pairs(std::deque<int>& d, size_t size)
         std::deque<std::deque<int> >::iterator it = std::lower_bound(main_chain.begin(), main_chain.begin() + 2, pend_chain[1], Compare);
         main_chain.insert(it, pend_chain[1]);
     }
-    for(size_t i = 3; i < pend_chain.size(); i++)
+    for(size_t i = 3; i <= pend_chain.size(); i++)
     {
         int j = jacobsthal(i);
 		if(j >= (int)(pend_chain.size()))
@@ -150,11 +150,20 @@ void split_deque_into_pairs(std::deque<int>& d, size_t size)
         std::deque<std::deque<int> >::iterator it = std::lower_bound(main_chain.begin(), main_chain.end(), tmp, Compare);
         main_chain.insert(it, tmp);
     }
+    // for (size_t i = 0; i < pend_chain.size(); i++)
+    // {
+    //     std::deque<std::deque<int> >::iterator it = std::lower_bound(main_chain.begin(), main_chain.end(), pend_chain[i], Compare);
+    //     main_chain.insert(it, pend_chain[i]);
+    // }
+    // if (!tmp.empty())
+    // {
+    //     std::deque<std::deque<int> >::iterator it = std::lower_bound(main_chain.begin(), main_chain.end(), tmp, Compare);
+    //     main_chain.insert(it, tmp);
+    // }
     d.clear();
     for (std::deque<std::deque<int> >::iterator it = main_chain.begin(); it != main_chain.end(); ++it)
         d.insert(d.end(), it->begin(), it->end());
 }
-
 
 int main (int ac, char **av)
 {
