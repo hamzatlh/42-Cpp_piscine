@@ -70,6 +70,7 @@
 		"list": "cpp",
 		"__tree": "cpp",
 		"map": "cpp",
-		"regex": "cpp"
+		"regex": "cpp",
+		"set": "cpp"
 	}
 }
