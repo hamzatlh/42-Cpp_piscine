@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:20:40 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/10/23 17:43:25 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:11:29 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int main (int ac, char **av)
         std::cout << *it << " ";
     std::cout << std::endl;
     std::cout << std::endl;
-    std::cout << "Time to process a range of " << ac - 1 << " elements with std::deque : " << static_cast<float>(timedeque) * 1000 / CLOCKS_PER_SEC << " us" << std::endl;
-    std::cout << "Time to process a range of " << ac - 1 << " elements with std::vector   : " << static_cast<float>(timevectore) * 1000 / CLOCKS_PER_SEC << " us" << std::endl;
+    std::cout << "Time to process a range of " << ac - 1 << " elements with std::deque : " << static_cast<float>(timedeque) * 1000000 / CLOCKS_PER_SEC << " us" << std::endl;
+    std::cout << "Time to process a range of " << ac - 1 << " elements with std::vector   : " << static_cast<float>(timevectore) * 1000000 / CLOCKS_PER_SEC << " us" << std::endl;
 	return (0);
 }
