@@ -6,20 +6,18 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 12:17:09 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/10/23 17:49:26 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/27 18:37:14 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-
-int comp = 0;
 
 int isInt(std::string str)
 {
 	int i = 0;
     char *end;
     double j = strtod(str.c_str(), &end);
-	if(j > INT_MAX || j < INT_MIN)
+	if(j > INT_MAX)
 		return (0);
 	if (str[i] == '+')
 		i++;
@@ -61,34 +59,19 @@ void split_deque_into_pairs(std::deque<int>& d, size_t size)
     if (d.size() % (size * 2) != 0)
     {
         for (size_t i = d.size() - (d.size() % (size * 2)); i < d.size(); i++)
-            tmp.push_back(d[i]);
+                tmp.push_back(d[i]);
         d.erase(d.end() - (d.size() % (size * 2)), d.end());
     }
     for (size_t i = 0; i < d.size(); i += size * 2)
     {
         std::deque<int> first_deque;
         std::deque<int> second_deque;
-        if (d.size() - i < size * 2)
-        {
-            for (size_t j = i; j < d.size(); j++)
-            {
-                if (j < i + size)
-                    first_deque.push_back(d[j]);
-                else
-                    second_deque.push_back(d[j]);
-            }
-        }
-        else
-        {
-            for (size_t j = i; j < i + size; j++)
+        for (size_t j = i; j < i + size ; j++)
                 first_deque.push_back(d[j]);
-            for (size_t j = i + size; j < i + size * 2; j++)
+        for (size_t j = i + size; j < i + size * 2; j++)
                 second_deque.push_back(d[j]);
-            if (first_deque.back() > second_deque.back())
-            {
-                std::swap(first_deque, second_deque);
-            }
-        }
+        if (first_deque.back() > second_deque.back())
+            std::swap(first_deque, second_deque);
         pairs.push_back(std::make_pair(first_deque, second_deque));
     }
     d.clear();
@@ -108,29 +91,13 @@ void split_deque_into_pairs(std::deque<int>& d, size_t size)
     std::deque<int> jacob_arr;
     for (size_t i = 0; i < d.size(); i += size * 2)
     {
-        if (size > d.size() - i)
-        {
-            std::deque<int> first_deque;
-            std::deque<int> second_deque;
-            for (size_t j = i; j < d.size(); j++)
-            {
-                if (j < i + size)
-                    first_deque.push_back(d[j]);
-                else
-                    second_deque.push_back(d[j]);
-            }
-            pairs.push_back(std::make_pair(first_deque, second_deque));
-        }
-        else
-        {
-            std::deque<int> first_deque;
-            std::deque<int> second_deque;
-            for (size_t j = i; j < i + size; j++)
-                first_deque.push_back(d[j]);
-            for (size_t j = i + size; j < i + size * 2; j++)
-                second_deque.push_back(d[j]);
-            pairs.push_back(std::make_pair(first_deque, second_deque));
-        }
+        std::deque<int> first_deque;
+        std::deque<int> second_deque;
+        for (size_t j = i; j < i + size; j++)
+            first_deque.push_back(d[j]);
+        for (size_t j = i + size; j < i + size * 2; j++)
+            second_deque.push_back(d[j]);
+        pairs.push_back(std::make_pair(first_deque, second_deque));
         main_chain.push_back(pairs.back().second);
         pend_chain.push_back(pairs.back().first);
     }
@@ -141,7 +108,7 @@ void split_deque_into_pairs(std::deque<int>& d, size_t size)
         std::deque<std::deque<int> >::iterator it = std::lower_bound(main_chain.begin(), main_chain.begin() + 2, pend_chain[1], Compare);
         main_chain.insert(it, pend_chain[1]);
     }
-    for(size_t i = 3; i <= pend_chain.size(); i++)
+    for(size_t i = 2; i <= pend_chain.size(); i++)
     {
         int j = jacobsthal(i);
 		if(j >= (int)(pend_chain.size()))
@@ -195,27 +162,13 @@ void split_vector_into_pairs(std::vector<int>& v, size_t size)
     {
         std::vector<int> first_vector;
         std::vector<int> second_vector;
-        if (v.size() - i < size * 2)
+        for (size_t j = i; j < i + size; j++)
+            first_vector.push_back(v[j]);
+        for (size_t j = i + size; j < i + size * 2; j++)
+            second_vector.push_back(v[j]);
+        if (first_vector.back() > second_vector.back())
         {
-            for (size_t j = i; j < v.size(); j++)
-            {
-                if (j < i + size)
-                    first_vector.push_back(v[j]);
-                else
-                    second_vector.push_back(v[j]);
-            }
-        }
-        else
-        {
-            for (size_t j = i; j < i + size; j++)
-                first_vector.push_back(v[j]);
-            for (size_t j = i + size; j < i + size * 2; j++)
-                second_vector.push_back(v[j]);
-            comp++;
-            if (first_vector.back() > second_vector.back())
-            {
-                std::swap(first_vector, second_vector);
-            }
+            std::swap(first_vector, second_vector);
         }
         pairs.push_back(std::make_pair(first_vector, second_vector));
     }
@@ -236,29 +189,13 @@ void split_vector_into_pairs(std::vector<int>& v, size_t size)
     std::vector<int> jacob_arr;
     for (size_t i = 0; i < v.size(); i += size * 2)
     {
-        if (size > v.size() - i)
-        {
-            std::vector<int> first_vector;
-            std::vector<int> second_vector;
-            for (size_t j = i; j < v.size(); j++)
-            {
-                if (j < i + size)
-                    first_vector.push_back(v[j]);
-                else
-                    second_vector.push_back(v[j]);
-            }
-            pairs.push_back(std::make_pair(first_vector, second_vector));
-        }
-        else
-        {
-            std::vector<int> first_vector;
-            std::vector<int> second_vector;
-            for (size_t j = i; j < i + size; j++)
-                first_vector.push_back(v[j]);
-            for (size_t j = i + size; j < i + size * 2; j++)
-                second_vector.push_back(v[j]);
-            pairs.push_back(std::make_pair(first_vector, second_vector));
-        }
+        std::vector<int> first_vector;
+        std::vector<int> second_vector;
+        for (size_t j = i; j < i + size; j++)
+            first_vector.push_back(v[j]);
+        for (size_t j = i + size; j < i + size * 2; j++)
+            second_vector.push_back(v[j]);
+        pairs.push_back(std::make_pair(first_vector, second_vector));
         main_chain.push_back(pairs.back().second);
         pend_chain.push_back(pairs.back().first);
     }

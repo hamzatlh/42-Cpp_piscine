@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 10:46:55 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/10/09 13:03:22 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/27 18:51:17 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int parse_data(std::map<std::string, double> *map)
     if (!file.is_open())
     {
         std::cout << "Error: could not open file" << std::endl;
-        return 1;
+        exit(1);
     }
     std::string line;
     bool isFirstLine = true;
@@ -138,11 +138,12 @@ int parse_input(std::string filename)
 {
     std::ifstream file(filename.c_str());
     std::map<std::string, double> map;
+    // time_t now = time(0);
     parse_data(&map);
     if (!file.is_open())
     {
         std::cout << "Error: could not open file" << std::endl;
-        return 1;
+        exit(1);
     }
     std::string line;
     bool isFirstLine = true;
@@ -193,6 +194,12 @@ int parse_input(std::string filename)
                     continue;
                 }
             }
+        //    char* dt = ctime(&now);
+        //     if (date > dt)
+        //     {
+        //         std::cout << "Error: date in the future" << std::endl;
+        //         continue;
+        //     }
             char* end;
             double rate = std::strtod(rate_str.c_str(), &end);
             if(rate < 0 || *end != '\0')

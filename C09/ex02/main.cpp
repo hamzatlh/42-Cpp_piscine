@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:20:40 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/10/23 19:11:29 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/27 17:55:54 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main (int ac, char **av)
     clock_t timevectore;
 	if (ac < 2)
 	{
-		std::cout << "Error : please give me a list of integers pleaaaseee" << std::endl;
+		std::cout << "Error : please give us something to sort" << std::endl;
 		return (0);
 	}
 	for (int i = 1; i < ac; i++)
