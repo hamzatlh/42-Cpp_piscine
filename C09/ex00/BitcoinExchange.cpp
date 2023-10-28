@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 10:46:55 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/10/27 18:51:17 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/28 08:16:36 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,8 @@ int parse_input(std::string filename)
 {
     std::ifstream file(filename.c_str());
     std::map<std::string, double> map;
-    // time_t now = time(0);
+    std::time_t now = std::time(0);
+    std::tm* current_time = std::localtime(&now);
     parse_data(&map);
     if (!file.is_open())
     {
@@ -162,7 +163,6 @@ int parse_input(std::string filename)
                 std::cout << "Error: first line is not correct" << std::endl;
                 continue;
             }
-            continue;
         }
         else
         {
@@ -194,36 +194,39 @@ int parse_input(std::string filename)
                     continue;
                 }
             }
-        //    char* dt = ctime(&now);
-        //     if (date > dt)
-        //     {
-        //         std::cout << "Error: date in the future" << std::endl;
-        //         continue;
-        //     }
+            char buffer[100];
+            strftime (buffer, 11, "%Y-%m-%d", current_time);
+            if (date > buffer)
+            {
+                std::cout << "Error: date too new" << std::endl;
+                continue;
+            }
+            if (date < "2009-01-02")
+            {
+                std::cout << "Error: date too old" << std::endl;
+                continue;
+            }
             char* end;
             double rate = std::strtod(rate_str.c_str(), &end);
-            if(rate < 0 || *end != '\0')
+            if (*end != '\0')
+            {
+                std::cout << "Error: bad input" << std::endl;
+                continue;
+            }
+            if(rate < 0)
             {
                 std::cout << "Error: not a positive number." << std::endl;
                 continue;
             }
-            if (rate > INT_MAX)
+            if (rate > 1000)
             {
                 std::cout << "Error: too large number." << std::endl;
                 continue;
             }
             std::map<std::string, double>::iterator it = map.lower_bound(date);
-            if (it == map.end())
-            {
-                std::cout << "Error: date not found" << std::endl;
-                continue;
-            }
-            else
-            {
-                if(it->first != date)
-                    it--;
-                std::cout << date << " => " << rate << " = " << it->second * rate <<std::endl;
-            }
+            if(it->first != date)
+                it--;
+            std::cout << date << " => " << rate << " = " << it->second * rate <<std::endl;
         }
     } 
     file.close();

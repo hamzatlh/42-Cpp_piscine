@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 10:46:48 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/10/27 18:46:55 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/10/28 08:23:04 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 # define BITCOINEXCHANGE_HPP
 
 # include <iostream>
-# include <sstream>
-# include <string>
-# include <iomanip>
 # include <fstream>
-#include <ctime>
+# include <ctime>
 # include <map>
 # include <algorithm>
 
